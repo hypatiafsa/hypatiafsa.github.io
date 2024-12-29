@@ -1,0 +1,14 @@
+title: Hypatia
+email: hypatia@fabiomogavero.com
+description: >-
+  Hypatia is a formal-system assistant toolkit designed to support the
+  development, verification, analysis, and processing of formal systems crafted
+  in the Hypatia Sifr language and its evolving dialects.
+baseurl: ""
+url: ""
+github_username: hypatiafsa
+theme: minima
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
