@@ -14,5 +14,6 @@
 ## Begin of file test.sh ##
 
 bundle exec jekyll serve
+rm -rf _site Gemfile.lock
 
 ## End of file test.sh ##

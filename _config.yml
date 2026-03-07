@@ -1,15 +1,56 @@
 title: Hypatia
-logo: assets/images/hypatia.png
-email: hypatia@fabiomogavero.com
-description: >-
-  Hypatia is a formal-system assistant toolkit designed to support the
-  verification, analysis, and processing of formal systems crafted in the
-  Hypatia language and its evolving dialects.
-baseurl: ""
-url: ""
-github_username: hypatiafsa
-theme: minima
-remote_theme: pages-themes/minimal@v0.2.0
-plugins:
-  - jekyll-feed
-  - jekyll-remote-theme
+description: Formal-System Assistant Toolkit
+url: "https://hypatiafsa.github.io"
+
+exclude:
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
+  - .markdownlint.json
+  - Gemfile
+  - Gemfile.lock
+  - readme.md
+  - test.sh
+
+repo_branch: dev
+repo: https://github.com/hypatiafsa/hypatia
+hackage: https://hackage.haskell.org/package/hypatia
+stackage: https://www.stackage.org/package/hypatia
+
+vscode_repo_branch: main
+vscode_repo: https://github.com/hypatiafsa/vscode
+vscode_marketplace: https://marketplace.visualstudio.com/items?itemName=HypatiaFSA.hypatia
+vscode_openvsx: https://open-vsx.org/extension/HypatiaFSA/hypatia
+
+ghcup: https://www.haskell.org/ghcup/
+
+header:
+  links:
+    - label: Language
+      kind: blob
+      path: /doc/hypatia.md
+    - label: Architecture
+      kind: blob
+      path: /doc/architecture.md
+    - label: Formalisation
+      kind: tree
+      path: /hyp
+    - label: Examples
+      kind: tree
+      path: /exm
+
+footer:
+  copyright: "Copyright © 2025-2026, the Hypatia Development Team."
+  links:
+    - label: Source
+      kind: tree
+      path: /
+    - label: Issues
+      kind: root
+      path: /issues
+    - label: Changelog
+      kind: blob
+      path: /changelog.md
+    - label: Contributors
+      kind: blob
+      path: /contributors.txt
