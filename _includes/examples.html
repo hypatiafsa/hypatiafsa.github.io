@@ -1,0 +1,144 @@
+<div class="carousel-window" role="region" aria-label="Code Examples">
+
+  <div class="carousel-titlebar">
+    <span class="carousel-filename" id="carousel-filename">Hofstadter's MIU System</span>
+    <div class="carousel-controls">
+      <button class="wm-btn wm-min" aria-label="Minimise" tabindex="-1"></button>
+      <button class="wm-btn wm-max" aria-label="Maximise" tabindex="-1"></button>
+      <button class="wm-btn wm-cls" aria-label="Close" tabindex="-1"></button>
+    </div>
+  </div>
+
+  <div class="carousel-body">
+
+    <!-- 1 · MIU -------------------------------------------------------------->
+    <div class="carousel-slide active" data-filename="Hofstadter's MIU System">
+      <pre><span class="kw">$Hypatia</span> Sifr <span class="kw">$:</span>
+<span class="kw">$Lingua</span> MIU <span class="kw">$:</span>
+
+  <span class="kw">$Alphabetum</span> M I U x y <span class="kw">$.</span>
+  <span class="kw">$Lexicon</span> M I U <span class="kw">$.</span>
+  <span class="kw">$Mutabilia</span> x y <span class="kw">$.</span>
+
+  <span class="kw">$Principium</span> MI <span class="kw">$:</span> MI <span class="kw">$.</span>
+  <span class="kw">$Regula</span> I   <span class="kw">$:</span> xI    <span class="kw">$-</span> xIU <span class="kw">$.</span>
+  <span class="kw">$Regula</span> M   <span class="kw">$:</span> Mx    <span class="kw">$-</span> Mxx <span class="kw">$.</span>
+  <span class="kw">$Regula</span> III <span class="kw">$:</span> xIIIy <span class="kw">$-</span> xUy <span class="kw">$.</span>
+  <span class="kw">$Regula</span> UU  <span class="kw">$:</span> xUUy  <span class="kw">$-</span> xy  <span class="kw">$.</span>
+
+  <span class="kw">$Productum</span> MIU <span class="kw">$:</span> MIU <span class="kw">$ex</span>
+    <span class="kw">$Probatione</span>
+      <span class="kw">$Assumo</span>    MI  <span class="kw">$per $Principium</span> MI <span class="kw">$.</span>
+      <span class="kw">$Consequor</span> MIU <span class="kw">$ex  $Regula</span> I
+                     <span class="kw">$cum</span> x <span class="kw">$=</span> M <span class="kw">$.</span>
+    <span class="kw">$.</span>
+  <span class="kw">$.</span>
+
+<span class="kw">$.</span> <span class="kw">$.</span></pre>
+    </div>
+    <!------------------------------------------------------------------------->
+
+    <!-- 2 · SKI -------------------------------------------------------------->
+    <div class="carousel-slide" data-filename="Schönfinkel's SKI Combinator Calculus">
+      <pre><span class="kw">$Hypatia</span> Sifr <span class="kw">$:</span>
+<span class="kw">$Lingua</span> SKI <span class="kw">$:</span>
+
+  <span class="kw">$Alphabetum</span>  S K I x y z <span class="kw">$.</span>
+  <span class="kw">$Intervalla</span> \sp \th <span class="kw">$.</span>
+  <span class="kw">$Lexicon</span> S K I <span class="kw">$.</span>
+  <span class="kw">$Mutabilia</span> x y z <span class="kw">$.</span>
+
+  <span class="kw">$Regula</span> I <span class="kw">$:</span> I x     <span class="kw">$-</span> x         <span class="kw">$.</span>
+  <span class="kw">$Regula</span> K <span class="kw">$:</span> K x y   <span class="kw">$-</span> x         <span class="kw">$.</span>
+  <span class="kw">$Regula</span> S <span class="kw">$:</span> S x y z <span class="kw">$-</span> x z (y z) <span class="kw">$.</span>
+
+  <span class="kw">$Productum</span> SKK2I <span class="kw">$:</span> S K K x <span class="kw">$-</span> x <span class="kw">$ex</span>
+    <span class="kw">$Probatione</span>
+      <span class="kw">$Assumo</span>    S K K x <span class="kw">$per $Regula</span> S <span class="kw">$.</span>
+      <span class="kw">$Consequor</span> K x (K x) <span class="kw">$ex $Regula</span> S <span class="kw">$.</span>
+      <span class="kw">$Consequor</span> x <span class="kw">$ex $Regula</span> K <span class="kw">$.</span>
+    <span class="kw">$.</span>
+  <span class="kw">$.</span>
+
+<span class="kw">$.</span> <span class="kw">$.</span></pre>
+    </div>
+    <!------------------------------------------------------------------------->
+
+    <!-- 3 · A::B ------------------------------------------------------------->
+    <div class="carousel-slide" data-filename="Taelin's A::B System">
+      <pre><span class="kw">$Hypatia</span> Sifr <span class="kw">$:</span>
+<span class="kw">$Lingua</span> A::B <span class="kw">$:</span>
+
+  <span class="kw">$Alphabetum</span> A B # x y <span class="kw">$.</span>
+  <span class="kw">$Intervalla</span> \sp \th <span class="kw">$.</span>
+  <span class="kw">$Lexicon</span> A# #A B# #B <span class="kw">$.</span>
+  <span class="kw">$Mutabilia</span> x y <span class="kw">$.</span>
+
+  <span class="kw">$Regula</span> A##A <span class="kw">$:</span> x A# #A y <span class="kw">$-</span> x       y <span class="kw">$.</span>
+  <span class="kw">$Regula</span> B##B <span class="kw">$:</span> x B# #B y <span class="kw">$-</span> x       y <span class="kw">$.</span>
+  <span class="kw">$Regula</span> A##B <span class="kw">$:</span> x A# #B y <span class="kw">$-</span> x #B A# y <span class="kw">$.</span>
+
+  <span class="kw">$Derivatio</span> Simp <span class="kw">$:</span> B# A# #B #A <span class="kw">$-</span> $Vacuum <span class="kw">$ex</span>
+    <span class="kw">$Probatione</span>
+      <span class="kw">$Praemitto</span> B# A# #B #A <span class="kw">$.</span>
+      <span class="kw">$Consequor</span> B# #B A# #A <span class="kw">$ex $Regula</span> A##B
+                             <span class="kw">$cum</span> x <span class="kw">$=</span> B# <span class="kw">$,
+                                 </span> y <span class="kw">$=</span> #A <span class="kw">$.</span>
+      <span class="kw">$Consequor</span>       A# #A <span class="kw">$ex $Regula</span> B##B
+                             <span class="kw">$cum</span> x <span class="kw">$=</span> $Vacuum <span class="kw">$,
+                                 </span> y <span class="kw">$=</span> A# #A <span class="kw">$.</span>
+      <span class="kw">$Consequor</span>             <span class="kw">$ex $Regula</span> A##A
+                             <span class="kw">$cum</span> x y <span class="kw">$=</span> $Vacuum <span class="kw">$.</span>
+    <span class="kw">$.</span>
+  <span class="kw">$.</span>
+
+<span class="kw">$.</span> <span class="kw">$.</span></pre>
+    </div>
+    <!------------------------------------------------------------------------->
+
+  </div>
+
+  <div class="carousel-dots" role="tablist" aria-label="Examples">
+    <button class="carousel-dot active" data-index="0" aria-label="MIU" role="tab" aria-selected="true"></button>
+    <button class="carousel-dot" data-index="1" aria-label="SKI" role="tab" aria-selected="false"></button>
+    <button class="carousel-dot" data-index="2" aria-label="A::B" role="tab" aria-selected="false"></button>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+
+    var timer;
+    var current = 0;
+    var dots = document.querySelectorAll('.carousel-dot');
+    var slides = document.querySelectorAll('.carousel-slide');
+    var filename = document.getElementById('carousel-filename');
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-selected', 'false');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      dots[current].setAttribute('aria-selected', 'true');
+      filename.textContent = slides[current].dataset.filename;
+    }
+
+    function next() { goTo(current + 1); }
+    function startTimer() { timer = setInterval(next, 25000); }
+    function stopTimer() { clearInterval(timer); }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        stopTimer();
+        goTo(parseInt(this.dataset.index));
+        startTimer();
+      });
+    });
+
+    startTimer();
+
+  })();
+</script>
