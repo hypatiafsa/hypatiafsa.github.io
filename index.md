@@ -17,6 +17,10 @@ hero:
       kind: blob
       path: '#documentation'
       class: btn-ghost
+    - label: GitHub
+      kind: tree
+      path: /
+      class: btn-ghost
 
 badges:
   - alt: Release
@@ -73,43 +77,44 @@ about:
         allowing clients to generate documents, construct proof objects, and
         embed Hypatia as a verifier back-end in broader toolchains.
 
-
 features:
   label: Features
   title: What you can do with Hypatia
   items:
     - icon: "\u2713"
-      title: Mechanised verification
+      title: Mechanised Verification
       text: >-
-        Check that every proof step follows from declared inference rules,
-        with no hidden automation or oracles.
-    - icon: "\U0001F4DC"
-      title: Proof certificates
-      text: >-
-        Generate syntactic or semantic certificates witnessing successful
-        validation, supporting trusted verification pipelines.
+        Check that every proof step follows from declared inference rules, with
+        no hidden automation or oracles.
     - icon: "\U0001F5FC"
-      title: Dialect tower
+      title: Dialect Tower
       text: >-
-        Write proofs at the level of abstraction you prefer — minimal Sunya,
-        sugar-coated Sifr, or ergonomic Zero — and compile downward.
+        Write proofs at the level of abstraction you prefer: minimal Sunya;
+        sugar-coated Sifr; ergonomic Zero.
     - icon: "\u2696\uFE0F"
-      title: Theory-neutral
+      title: Theory Neutrality
       text: >-
         Hypatia imposes no logical framework. Encode classical logic,
         intuitionistic logic, type theory, or any custom system.
+    - icon: "\U0001F4DC"
+      title: Proof Certification
+      badge: planned
+      text: >-
+        Generate syntactic or semantic certificates witnessing successful
+        validation, supporting trusted verification pipelines.
+    - icon: "\U0001F501"
+      title: Transformations
+      badge: beta
+      text: >-
+        Metis translates Hypatia documents from and to other frameworks
+        including Metamath, Mizar, Isabelle, and Lean.
     - icon: "\U0001F50C"
-      title: Language server
+      title: Language Server
       badge: beta
       text: >-
         Pythia provides IDE integration via LSP, bringing diagnostics and
         tooling support to your editor of choice.
-    - icon: "\U0001F501"
-      title: Transformations
-      badge: planned
-      text: >-
-        Metis will translate Hypatia documents to and from other frameworks
-        including Metamath, Lean, and Isabelle.
+
 
 dialects:
   label: Dialects

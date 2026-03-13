@@ -13,23 +13,23 @@
 /* -- Base ------------------------------------------------------------------ */
 
 :root {
-  --ink: #1c2438;
-  --ink-soft: #3d4a66;
-  --ink-muted: #6b7898;
-  --bg: #f9f7f3;
-  --bg-soft: #f2efe9;
-  --bg-card: #ffffff;
+  --ink: #1F253A;
+  --ink-soft: #3F4A55;
+  --ink-muted: #6A7A9A;
+  --bg: #FAF5F0;
+  --bg-soft: #F0EFEA;
+  --bg-card: #FFFFFF;
   --rule: #ddd9d0;
   --accent: #C05A0F;
   --accent-h: #A05A05;
   --code-bg: #1F2535;
   --code-fg: #cdd6f4;
   --kw: #559AD5;
-  --cmt: #6c7086;
+  --cmt: #55AA55;
   --fn: #89b4fa;
-  --sans: 'Outfit', sans-serif;
-  --serif: 'Spectral', Georgia, serif;
-  --mono: 'Fira Mono', 'JetBrains Mono', monospace;
+  --sans: 'Outfit', Sans-Serif;
+  --serif: 'Spectral', Georgia, Serif;
+  --mono: 'Fira Mono', 'JetBrains Mono', Monospace;
   --max: 1060px;
   --gap: clamp(1.25rem, 5vw, 2.5rem);
 }

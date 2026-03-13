@@ -136,24 +136,24 @@
   </section>
   <!--------------------------------------------------------------------------->
 
-
   <!-- Features --------------------------------------------------------------->
   <section class="alt">
     <div class="wrap">
       <p class="section-label">{{ page.features.label }}</p>
       <h2>{{ page.features.title }}</h2>
       <div class="features-grid">
-        {% for f in page.features.items %}
+        {% for ftr in page.features.items %}
         <div class="feature-card">
-          <span class="feature-icon">{{ f.icon }}</span>
-          <h3>{{ f.title }}{% if f.badge %}<span class="feature-badge">({{ f.badge }})</span>{% endif %}</h3>
-          <p>{{ f.text }}</p>
+          <span class="feature-icon">{{ ftr.icon }}</span>
+          <h3>{{ ftr.title }}{% if ftr.badge %}<span class="feature-badge">({{ ftr.badge }})</span>{% endif %}</h3>
+          <p>{{ ftr.text }}</p>
         </div>
         {% endfor %}
       </div>
     </div>
   </section>
   <!--------------------------------------------------------------------------->
+
 
   <!-- Dialects --------------------------------------------------------------->
   <section>
