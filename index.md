@@ -5,8 +5,8 @@ hero:
   eyebrow: Formal-System Assistant Toolkit
   title: Verify. Analyse. <br> Process.
   tagline: >-
-    Hypatia is an open-source formal-system language and toolkit designed to
-    support the verification, analysis, and processing of formal derivations
+    Hypatia is an open-source formal language and toolkit designed to support
+    the verification, analysis, and processing of user-defined formal systems
     crafted in the Hypatia language and its evolving dialects.
   buttons:
     - label: Install
@@ -67,9 +67,9 @@ about:
       text: >-
         The Hypatia program is a standalone command-line suite built around a
         minimal verifier kernel, which checks the correctness of derivations
-        against the user-supplied inference rules. The kernel is intentionally
-        kept small and auditable, and does not include proof tactics or
-        automated strategies.
+        against the user-supplied inference rules. This kernel is intentionally
+        kept small and auditable, and does not include tactics or automated
+        strategies: it is a verifier, not a full proof assistant.
     - title: The Library
       text: >-
         Hypatia is also intended to serve, in a future release, as a Haskell
@@ -84,69 +84,77 @@ features:
     - icon: "\u2713"
       title: Mechanised Verification
       text: >-
-        Check that every proof step follows from declared inference rules, with
-        no hidden automation or oracles.
+        Check that every proof step follows from the declared inference rules of
+        the chosen dialect, with no hidden automation, oracles, or trusted black
+        boxes.
     - icon: "\U0001F5FC"
       title: Dialect Tower
       text: >-
-        Write proofs at the level of abstraction you prefer: minimal Sunya;
-        sugar-coated Sifr; ergonomic Zero.
+        Write proofs at the level of abstraction you prefer: the minimal and
+        explicit Sunya, the sugar-coated Sifr, or the ergonomic surface language
+        Zero.
     - icon: "\u2696\uFE0F"
       title: Theory Neutrality
       text: >-
-        Hypatia imposes no logical framework. Encode classical logic,
-        intuitionistic logic, type theory, or any custom system.
+        Hypatia imposes no logical framework or built-in axioms. It can encode
+        classical logic, intuitionistic logic, type theory, or entirely custom
+        inference systems.
     - icon: "\U0001F4DC"
       title: Proof Certification
       badge: planned
       text: >-
         Generate syntactic or semantic certificates witnessing successful
-        validation, supporting trusted verification pipelines.
+        validation, supporting trusted verification pipelines and independent
+        audit trails.
     - icon: "\U0001F501"
       title: Transformations
       badge: beta
       text: >-
-        Metis translates Hypatia documents from and to other frameworks
-        including Metamath, Mizar, Isabelle, and Lean.
+        Translates Hypatia documents from and to other frameworks including
+        Metamath, Mizar, Isabelle, and Lean, enabling interoperability across
+        formal ecosystems.
     - icon: "\U0001F50C"
       title: Language Server
       badge: beta
       text: >-
-        Pythia provides IDE integration via LSP, bringing diagnostics and
-        tooling support to your editor of choice.
+        Pythia provides IDE integration via the Language Server Protocol,
+        bringing real-time diagnostics, navigation, and tooling support to your
+        editor of choice.
 
 dialects:
   label: Dialects
   title: A tower of formal languages
   items:
     - text: >-
-        The dialect tower is a stratified hierarchy of layers each compiling to
-        the one below, so the Sunya verifier remains the single trusted root of
-        the entire system.
+        The dialect tower is a stratified hierarchy in which each layer compiles
+        deterministically to the one below it, so the Sunya verifier remains the
+        single trusted root of the entire system.
         Sunya's own semantics is formally defined within Sunya itself, enabling
-        bootstrapping and self-certification.
+        bootstrapping and self certification.
     - text: >-
-        Sunya, Sifr, and Zero are the three names of the 'zero' derived from the
-        corresponding Sanskrit, Arabic and Latin words.
+        Sunya, Sifr, and Zero take their names from the word for 'zero' in
+        Sanskrit, Arabic, and Latin respectively; a nod to the foundational role
+        of the minimal object in formal reasoning.
   blocks:
     - name: Zero
       tag: experimental
       class: tag-experimental
       text: >-
-        Ergonomic surface language with richer sequencing and higher-level
-        proof structuring. Under active design; not yet stable.
+        Ergonomic surface language with richer sequencing and higher-level proof
+        structuring constructs. Under active design; not yet stable.
     - name: Sifr
       tag: syntactic sugar
       class: tag-sugar
       text: >-
-        Shorthand notations over Sunya with no additional expressive power.
-        Every Sifr construct desugars to Sunya deterministically.
+        Shorthand notations layered over Sunya with no additional expressive
+        power. Every Sifr construct desugars to Sunya deterministically.
     - name: Sunya
       tag: stable core
       class: tag-stable
       text: >-
-        Minimal self-defining foundation. Explicit, verbose, and easy to
-        understand and verify, both by automated tools and human inspection.
+        The minimal self-defining foundation of the tower. Explicit and
+        verbose by design. Easy to verify by both automated tools and direct
+        human inspection.
 
 
 install:
@@ -174,9 +182,10 @@ editor:
   label: Editor Support
   title: VS Code extension
   intro: >-
-    Hypatia-VSCode provides editor support for the Hypatia language in Visual
-    Studio Code, making Hypatia documents pleasant to read and write through
-    language-aware behaviour and sensible defaults.
+    Hypatia-VSCode provides first-class editor support for the Hypatia language
+    in Visual Studio Code, making Hypatia documents pleasant to read and write
+    through language-aware behaviour, syntax highlighting, and sensible
+    defaults that integrate cleanly with your existing setup.
   features:
     - Syntax highlighting for *.hyp and *.hypatia files
     - Bundled light and dark colour themes
