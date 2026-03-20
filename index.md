@@ -28,10 +28,10 @@ badges:
     path: /releases
     img: https://img.shields.io/github/v/release/hypatiafsa/hypatia?label=Release
   - alt: Hackage
-    site_key: hackage
+    key: hackage
     img: https://img.shields.io/hackage/v/hypatia.svg?label=Hackage
   - alt: Stackage LTS
-    site_key: stackage
+    key: stackage
     img: https://www.stackage.org/package/hypatia/badge/lts?label=Stackage+LTS
   - alt: Illinois Licence
     url: https://opensource.org/license/uoi-ncsa-php
@@ -115,38 +115,44 @@ features:
         Pythia provides IDE integration via LSP, bringing diagnostics and
         tooling support to your editor of choice.
 
-
 dialects:
   label: Dialects
   title: A tower of formal languages
-  intro: >-
-    The dialect tower is a stratified hierarchy — each layer desugars
-    deterministically to the one below, so the Sunya verifier remains
-    the single trusted root of the entire system.
-  hyp_path: /hyp
   items:
+    - text: >-
+        The dialect tower is a stratified hierarchy of layers each compiling to
+        the one below, so the Sunya verifier remains the single trusted root of
+        the entire system.
+        Sunya's own semantics is formally defined within Sunya itself, enabling
+        bootstrapping and self-certification.
+    - text: >-
+        Sunya, Sifr, and Zero are the three names of the 'zero' derived from the
+        corresponding Sanskrit, Arabic and Latin words.
+  blocks:
     - name: Zero
       tag: experimental
-      tag_class: tag-exp
-      desc: >-
+      class: tag-experimental
+      text: >-
         Ergonomic surface language with richer sequencing and higher-level
         proof structuring. Under active design; not yet stable.
     - name: Sifr
       tag: syntactic sugar
-      tag_class: tag-sugar
-      desc: >-
+      class: tag-sugar
+      text: >-
         Shorthand notations over Sunya with no additional expressive power.
         Every Sifr construct desugars to Sunya deterministically.
     - name: Sunya
       tag: stable core
-      tag_class: tag-stable
-      desc: >-
-        The minimal, self-defining foundation. Explicit, verbose, and easy
-        to verify by both human inspection and automated tools.
+      class: tag-stable
+      text: >-
+        Minimal self-defining foundation. Explicit, verbose, and easy to
+        understand and verify, both by automated tools and human inspection.
+
 
 install:
   label: Getting started
   title: Install Hypatia
+  ghcup: https://www.haskell.org/ghcup/
   blocks:
     - title: Via Cabal
       commands:
@@ -158,14 +164,11 @@ install:
         - "$ hypatia --version"
     - title: From source
       commands:
-        - "$ git clone $REPO"
-        - "    hypatiafsa/hypatia.git"
+        - "$ git clone $REPO hypatiafsa/hypatia.git"
         - "$ cd hypatia && cabal install"
     - title: Validate a document
       commands:
-        - "$ hypatia validator doc.hypatia"
-        - "$ hypatia validator -dSifr \\"
-        - "    --certify doc.hypatia"
+        - "$ hypatia validator -dSifr --certify doc.hypatia"
 
 editor:
   label: Editor Support
@@ -229,17 +232,17 @@ resources:
     - icon: "\U0001F4E6"
       title: Hackage
       sub: Latest Release on the Haskell Package Repository
-      site_key: hackage
+      key: hackage
     - icon: "\U0001F4E6"
       title: Stackage
       sub: Release on the Stable Set of Haskell Package Repository
-      site_key: stackage
+      key: stackage
     - icon: "\U0001F9E9"
       title: Visual Studio Marketplace
       sub: VSCode Extension on the Visual Studio Marketplace
-      site_key: vscode_marketplace
+      key: vscode_marketplace
     - icon: "\U0001F9E9"
       title: Open VSX Registry
       sub: VSCode Extension on the Open VSX Registry
-      site_key: vscode_openvsx
+      key: vscode_openvsx
 ---

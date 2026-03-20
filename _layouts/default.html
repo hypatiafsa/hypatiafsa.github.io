@@ -2,8 +2,8 @@
 <html lang="en">
 
 {% assign repo = site.repo %}
-{% assign blob = repo | append: '/blob/' | append: site.repo_branch %}
-{% assign tree = repo | append: '/tree/' | append: site.repo_branch %}
+{% assign blob = repo | append: '/blob/' | append: site.branch %}
+{% assign tree = repo | append: '/tree/' | append: site.branch %}
 
 <head>
 
@@ -53,15 +53,15 @@
         {{ site.title }}
       </a>
       <nav>
-        {% for item in site.header.links %}
-        {% if item.kind == 'blob' %}
-        {% assign linkhref = blob | append: item.path %}
-        {% elsif item.kind == 'tree' %}
-        {% assign linkhref = tree | append: item.path %}
+        {% for link in site.header.links %}
+        {% if link.kind == 'blob' %}
+        {% assign linkhref = blob | append: link.path %}
+        {% elsif link.kind == 'tree' %}
+        {% assign linkhref = tree | append: link.path %}
         {% else %}
-        {% assign linkhref = repo | append: item.path %}
+        {% assign linkhref = repo | append: link.path %}
         {% endif %}
-        <a href="{{ linkhref }}">{{ item.label }}</a>
+        <a href="{{ linkhref }}">{{ link.label }}</a>
         {% endfor %}
       </nav>
     </div>
@@ -79,19 +79,19 @@
         <h1 class="hero-title">{{ page.hero.title }}</h1>
         <p class="hero-tagline">{{ page.hero.tagline }}</p>
         <div class="hero-actions">
-          {% for btn in page.hero.buttons %}
-          {% if btn.path %}
-          {% if btn.kind == 'blob' %}
-          {% assign linkhref = blob | append: btn.path %}
-          {% elsif btn.kind == 'tree' %}
-          {% assign linkhref = tree | append: btn.path %}
+          {% for button in page.hero.buttons %}
+          {% if button.path %}
+          {% if button.kind == 'blob' %}
+          {% assign linkhref = blob | append: button.path %}
+          {% elsif button.kind == 'tree' %}
+          {% assign linkhref = tree | append: button.path %}
           {% else %}
-          {% assign linkhref = repo | append: btn.path %}
+          {% assign linkhref = repo | append: button.path %}
           {% endif %}
           {% else %}
-          {% assign linkhref = btn.url %}
+          {% assign linkhref = button.url %}
           {% endif %}
-          <a href="{{ linkhref }}" class="btn {{ btn.class }}">{{ btn.label }}</a>
+          <a href="{{ linkhref }}" class="btn {{ button.class }}">{{ button.label }}</a>
           {% endfor %}
         </div>
       </div>
@@ -108,8 +108,8 @@
       {% for badge in page.badges %}
       {% if badge.path %}
       {% assign linkhref = repo | append: badge.path %}
-      {% elsif badge.site_key %}
-      {% assign linkhref = site[badge.site_key] %}
+      {% elsif badge.key %}
+      {% assign linkhref = site[badge.key] %}
       {% else %}
       {% assign linkhref = badge.url %}
       {% endif %}
@@ -142,18 +142,17 @@
       <p class="section-label">{{ page.features.label }}</p>
       <h2>{{ page.features.title }}</h2>
       <div class="features-grid">
-        {% for ftr in page.features.items %}
+        {% for item in page.features.items %}
         <div class="feature-card">
-          <span class="feature-icon">{{ ftr.icon }}</span>
-          <h3>{{ ftr.title }}{% if ftr.badge %}<span class="feature-badge">({{ ftr.badge }})</span>{% endif %}</h3>
-          <p>{{ ftr.text }}</p>
+          <span class="feature-icon">{{ item.icon }}</span>
+          <h3>{{ item.title }}{% if item.badge %}<span class="feature-badge">({{ item.badge }})</span>{% endif %}</h3>
+          <p>{{ item.text }}</p>
         </div>
         {% endfor %}
       </div>
     </div>
   </section>
   <!--------------------------------------------------------------------------->
-
 
   <!-- Dialects --------------------------------------------------------------->
   <section>
@@ -162,22 +161,20 @@
         <div>
           <p class="section-label">{{ page.dialects.label }}</p>
           <h2>{{ page.dialects.title }}</h2>
-          <p style="margin-bottom:1.2rem;">{{ page.dialects.intro }}</p>
-          <p>
-            Sunya's own semantics is formally defined within Sunya itself, in the
-            <a href="{{ tree }}{{ page.dialects.hyp_path }}"><code>hyp/</code></a>
-            directory —
-            enabling bootstrapping and self-certification.
-          </p>
+          {% for item in page.dialects.items %}
+          <div>
+            <p>{{ item.text }}</p>
+          </div>
+          {% endfor %}
         </div>
         <div class="dialect-tower">
-          {% for d in page.dialects.items %}
+          {% for block in page.dialects.blocks %}
           <div class="dialect-row">
             <div>
-              <div class="dialect-name">{{ d.name }}</div>
-              <div class="dialect-tag {{ d.tag_class }}">{{ d.tag }}</div>
+              <div class="dialect-name">{{ block.name }}</div>
+              <div class="dialect-tag {{ block.class }}">{{ block.tag }}</div>
             </div>
-            <div class="dialect-desc">{{ d.desc }}</div>
+            <div class="dialect-desc">{{ block.text }}</div>
           </div>
           {% endfor %}
         </div>
@@ -186,6 +183,8 @@
   </section>
   <!--------------------------------------------------------------------------->
 
+
+  <!-- TO REVISE vvvv --------------------------------------------------------->
   <!-- Getting Started -------------------------------------------------------->
   <section class="alt">
     <div class="wrap">
@@ -193,7 +192,7 @@
       <h2>{{ page.install.title }}</h2>
       <p>
         Hypatia requires a working Haskell environment (GHC&nbsp;&#8805;&nbsp;9.6.3).
-        We recommend <a href="{{ site.ghcup }}">GHCup</a>
+        We recommend <a href="{{ page.install.ghcup }}">GHCup</a>
         to manage your Haskell installation.
       </p>
       <div class="install-cols">
@@ -231,9 +230,9 @@
             {% endfor %}
           </ul>
           <div class="editor-actions">
-            <a href="{{ site.vscode_marketplace }}" class="btn btn-primary">VS Code Marketplace</a>
-            <a href="{{ site.vscode_openvsx }}" class="btn btn-ghost">Open VSX</a>
-            <a href="{{ site.vscode_repo }}" class="btn btn-ghost">Source on GitHub</a>
+            <a href="{{ site.vscode_marketplace }}" class="button button-primary">VS Code Marketplace</a>
+            <a href="{{ site.vscode_openvsx }}" class="button button-ghost">Open VSX</a>
+            <a href="{{ site.vscode_repo }}" class="button button-ghost">Source on GitHub</a>
           </div>
         </div>
         <div class="editor-install">
@@ -250,6 +249,7 @@
     </div>
   </section>
   <!--------------------------------------------------------------------------->
+  <!-- TO REVISE ^^^^ --------------------------------------------------------->
 
 
   <!-- Resources -------------------------------------------------------------->
@@ -259,8 +259,8 @@
       <h2>{{ page.resources.title }}</h2>
       <div class="links-grid">
         {% for rsc in page.resources.items %}
-        {% if rsc.site_key %}
-        {% assign linkhref = site[rsc.site_key] %}
+        {% if rsc.key %}
+        {% assign linkhref = site[rsc.key] %}
         {% elsif rsc.path %}
         {% if rsc.kind == 'blob' %}
         {% assign linkhref = blob | append: rsc.path %}
