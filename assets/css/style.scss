@@ -2,6 +2,7 @@
 ---
 
 /* -- Reset ----------------------------------------------------------------- */
+
 *,
 *::before,
 *::after {
@@ -13,20 +14,36 @@
 /* -- Base ------------------------------------------------------------------ */
 
 :root {
-  --ink: #1F253A;
+  --ink: #1F2A35;
   --ink-soft: #3F4A55;
-  --ink-muted: #6A7A9A;
-  --bg: #FAF5F0;
-  --bg-soft: #F0EFEA;
-  --bg-card: #FFFFFF;
-  --rule: #ddd9d0;
-  --accent: #C05A0F;
-  --accent-h: #A05A05;
-  --code-bg: #1F2535;
-  --code-fg: #cdd6f4;
-  --kw: #559AD5;
-  --cmt: #55AA55;
-  --fn: #89b4fa;
+  --ink-muted: #5F6A75;
+  --bg: #F0F5F0;
+  --bg-soft: #E0E5E0;
+  --bg-card: #EEEEEE;
+  --rule: #D0DAD0;
+  --accent: #559AD5;
+  --accent-h: #55AFD5;
+  --code-bg: #1F253A;
+  --code-fg: #BFD5F5;
+  --code-tb: #2A3045;
+  --code-bt: #3F4F5F;
+  --code-fn: #8F9FAF;
+  --code-dlc: #CA00CA;
+  --code-lng: #CAA5F5;
+  --code-alp: #DDDDDD;
+  --code-int: #00FFAA;
+  --code-inc: #FF5500;
+  --code-lex: #55AF55;
+  --code-mut: #DCDCA0;
+  --code-sen: #CAA5F5;
+  --code-rat: #CAA5F5;
+  --code-phr: #A0F0A0;
+  --code-fun: #8AB5FA;
+  --code-kwd: #559AD5;
+  --code-str: #C05A0F;
+  --code-cmt: #55AA55;
+  --code-blb: #AAAAAA;
+  --code-err: #F00F0F;
   --sans: 'Outfit', Sans-Serif;
   --serif: 'Spectral', Georgia, Serif;
   --mono: 'Fira Mono', 'JetBrains Mono', Monospace;
@@ -34,7 +51,7 @@
   --gap: clamp(1.25rem, 5vw, 2.5rem);
 }
 
-/* #CAA5F5 */
+/* #CAA5F5 #C05A0F #A05A05 #55ACD5 #0FF0A0 #1F253A #BFD5F5 */
 
 html {
   scroll-behavior: smooth;
@@ -70,7 +87,10 @@ pre {
   padding: 0 var(--gap);
 }
 
+/* -------------------------------------------------------------------------- */
+
 /* -- Topbar ---------------------------------------------------------------- */
+
 .topbar {
   position: sticky;
   top: 0;
@@ -145,7 +165,10 @@ nav a:hover {
   background: var(--accent-h);
 }
 
+/* -------------------------------------------------------------------------- */
+
 /* -- Hero ------------------------------------------------------------------ */
+
 .hero {
   padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(2.5rem, 6vw, 4.5rem);
   border-bottom: 1px solid var(--rule);
@@ -321,22 +344,79 @@ nav a:hover {
   overflow-x: auto;
 }
 
-.code-body .cmt {
-  color: var(--cmt);
+.code-body .dlc {
+  color: var(--code-dlc);
+}
+
+.code-body .lng {
+  color: var(--code-lng);
+}
+
+.code-body .alp {
+  color: var(--code-alp);
+}
+
+.code-body .int {
+  color: var(--code-int);
+}
+
+.code-body .inc {
+  color: var(--code-inc);
+}
+
+.code-body .lex {
+  color: var(--code-lex);
+}
+
+.code-body .mut {
+  color: var(--code-mut);
+}
+
+.code-body .sen {
+  color: var(--code-sen);
+}
+
+.code-body .rat {
+  color: var(--code-rat);
+}
+
+.code-body .phr {
+  color: var(--code-phr);
+}
+
+.code-body .fun {
+  color: var(--code-fun);
+}
+
+.code-body .kwd {
+  color: var(--code-kwd);
+  font-weight: bold;
+}
+
+.code-body .str {
+  color: var(--code-str);
   font-style: italic;
 }
 
-.code-body .kw {
-  color: var(--kw);
+.code-body .cmt {
+  color: var(--code-cmt);
+  font-style: italic;
 }
 
-.code-body .fn {
-  color: var(--fn);
+.code-body .blb {
+  color: var(--code-blb);
+  font-style: italic;
+}
+
+.code-body .err {
+  color: var(--code-err);
+  font-style: italic;
 }
 
 /* -------------------------------------------------------------------------- */
 
 /* -- Badges ---------------------------------------------------------------- */
+
 .badges {
   padding: 1.1rem 0;
   border-bottom: 1px solid var(--rule);
@@ -358,7 +438,10 @@ nav a:hover {
   height: 20px;
 }
 
+/* -------------------------------------------------------------------------- */
+
 /* -- Sections -------------------------------------------------------------- */
+
 section {
   padding: clamp(2.5rem, 6vw, 4rem) 0;
 }
@@ -405,7 +488,10 @@ p {
   hyphens: auto;
 }
 
+/* -------------------------------------------------------------------------- */
+
 /* -- About ----------------------------------------------------------------- */
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -419,7 +505,10 @@ p {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+
 /* -- Features -------------------------------------------------------------- */
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -459,7 +548,10 @@ p {
   margin-left: 0.35rem;
 }
 
+/* -------------------------------------------------------------------------- */
+
 /* -- Dialects -------------------------------------------------------------- */
+
 .dialects-wrap {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -551,7 +643,10 @@ p {
   line-height: 1;
 }
 
-/* -- Install --------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+/* -- Getting Started ------------------------------------------------------- */
+
 .install-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -591,109 +686,13 @@ p {
 }
 
 .cmd {
-  color: var(--fn);
+  color: var(--code-fun);
 }
 
-/* -- Resources ------------------------------------------------------------- */
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-}
+/* -------------------------------------------------------------------------- */
 
-.link-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  background: var(--bg-card);
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  padding: 1.2rem 1.4rem;
-  transition: border-color 0.15s, box-shadow 0.15s;
-  color: inherit;
-}
+/* -- Editor Support -------------------------------------------------------- */
 
-.link-card:hover {
-  border-color: var(--accent);
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(192, 90, 31, 0.1);
-}
-
-.link-card-icon {
-  font-size: 1.3rem;
-}
-
-.link-card-title {
-  font-weight: 600;
-  font-size: 0.92rem;
-  color: var(--ink);
-}
-
-.link-card-sub {
-  font-size: 0.8rem;
-  color: var(--ink-muted);
-}
-
-/* -- Generic inner pages --------------------------------------------------- */
-.page-content {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: clamp(2.5rem, 6vw, 4rem) var(--gap);
-}
-
-.page-content h1 {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  margin-bottom: 1.2rem;
-}
-
-.page-content p,
-.page-content li {
-  color: var(--ink-soft);
-  max-width: 68ch;
-}
-
-/* -- Footer ---------------------------------------------------------------- */
-footer {
-  border-top: 1px solid var(--rule);
-  padding: 2rem 0;
-  background: var(--bg-soft);
-}
-
-.footer-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--gap);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.footer-copy {
-  font-size: 0.82rem;
-  color: var(--ink-muted);
-}
-
-.footer-links {
-  display: flex;
-  gap: 1.2rem;
-}
-
-.footer-links a {
-  font-size: 0.82rem;
-  color: var(--ink-muted);
-}
-
-.footer-links a:hover {
-  color: var(--accent);
-}
-
-
-/* -- Editor / VS Code section ---------------------------------------------- */
 .editor-wrap {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -777,11 +776,120 @@ footer {
 
 .editor-hint code {
   font-size: 0.82rem;
-  color: var(--fn);
+  color: var(--code-fun);
 }
 
+/* -------------------------------------------------------------------------- */
+
+/* -- Resources ------------------------------------------------------------- */
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1.2rem 1.4rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  color: inherit;
+}
+
+.link-card:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(192, 90, 31, 0.1);
+}
+
+.link-card-icon {
+  font-size: 1.3rem;
+}
+
+.link-card-title {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.link-card-sub {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* -- Generic Inner Pages --------------------------------------------------- */
+
+.page-content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4rem) var(--gap);
+}
+
+.page-content h1 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 1.2rem;
+}
+
+.page-content p,
+.page-content li {
+  color: var(--ink-soft);
+  max-width: 68ch;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* -- Footer ---------------------------------------------------------------- */
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 0;
+  background: rgba(249, 247, 243, 0.92);
+}
+
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gap);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copy {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-links a {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* -------------------------------------------------------------------------- */
 
 /* ── Carousel window ───────────────────────────────────────────────────────── */
+
 .carousel-window {
   background: var(--code-bg);
   border-radius: 8px;
@@ -792,7 +900,7 @@ footer {
 }
 
 .carousel-titlebar {
-  background: #2a3045;
+  background: var(--code-tb);
   padding: 0.5rem 0.9rem;
   display: flex;
   align-items: center;
@@ -804,10 +912,10 @@ footer {
 .carousel-filename {
   font-family: var(--mono);
   font-size: 0.75rem;
-  color: #6c7086;
+  font-weight: bold;
+  color: var(--code-fn);
 }
 
-/* KDE Breeze-style window controls */
 .carousel-controls {
   display: flex;
   gap: 5px;
@@ -834,9 +942,8 @@ footer {
   left: 50%;
 }
 
-/* Minimise: chevron pointing down (∨) */
 .wm-min {
-  background: #3d4d6e;
+  background: var(--code-bt);
 }
 
 .wm-min::before {
@@ -847,9 +954,8 @@ footer {
   transform: translate(-50%, -65%) rotate(45deg);
 }
 
-/* Maximise: chevron pointing up (∧) */
 .wm-max {
-  background: #3d4d6e;
+  background: var(--code-bt);
 }
 
 .wm-max::before {
@@ -860,9 +966,8 @@ footer {
   transform: translate(-50%, -35%) rotate(45deg);
 }
 
-/* Close: clean × */
 .wm-cls {
-  background: #3d4d6e;
+  background: var(--code-bt);
 }
 
 .wm-cls::before {
@@ -881,14 +986,14 @@ footer {
 
 .carousel-body {
   position: relative;
-  min-height: 505px;
+  min-height: 570px;
   flex: 1;
 }
 
 .carousel-slide {
   position: absolute;
   inset: 0;
-  padding: 1.2rem 1.4rem;
+  padding: 1.2rem 0.75rem;
   font-family: var(--mono);
   font-size: 0.8rem;
   line-height: 1.65;
@@ -904,17 +1009,73 @@ footer {
   pointer-events: auto;
 }
 
-.carousel-slide .cmt {
-  color: var(--cmt);
+.carousel-slide .dlc {
+  color: var(--code-dlc);
+}
+
+.carousel-slide .lng {
+  color: var(--code-lng);
+}
+
+.carousel-slide .alp {
+  color: var(--code-alp);
+}
+
+.carousel-slide .int {
+  color: var(--code-int);
+}
+
+.carousel-slide .inc {
+  color: var(--code-inc);
+}
+
+.carousel-slide .lex {
+  color: var(--code-lex);
+}
+
+.carousel-slide .mut {
+  color: var(--code-mut);
+}
+
+.carousel-slide .sen {
+  color: var(--code-sen);
+}
+
+.carousel-slide .rat {
+  color: var(--code-rat);
+}
+
+.carousel-slide .phr {
+  color: var(--code-phr);
+}
+
+.carousel-slide .fun {
+  color: var(--code-fun);
+}
+
+.carousel-slide .kwd {
+  color: var(--code-kwd);
+  font-weight: bold;
+}
+
+.carousel-slide .str {
+  color: var(--code-str);
   font-style: italic;
 }
 
-.carousel-slide .kw {
-  color: var(--kw);
+.carousel-slide .cmt {
+  color: var(--code-cmt);
+  font-style: italic;
 }
 
-.carousel-slide .fn {
-  color: var(--fn);
+.carousel-slide .blb {
+  color: var(--code-blb);
+  font-style: italic;
+}
+
+.carousel-slide .err {
+  color: var(--code-err);
+  font-style: italic;
 }
 
 .carousel-dots {
@@ -922,7 +1083,7 @@ footer {
   justify-content: center;
   gap: 8px;
   padding: 0.5rem;
-  background: #2a3045;
+  background: var(--code-tb);
   flex-shrink: 0;
 }
 
@@ -931,7 +1092,7 @@ footer {
   height: 8px;
   border-radius: 50%;
   border: none;
-  background: #4a5070;
+  background: var(--code-bt);
   cursor: pointer;
   padding: 0;
   transition: background 0.2s;
@@ -949,24 +1110,23 @@ footer {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+
 /* -- Animations ------------------------------------------------------------ */
 
 @keyframes fadeUp {
-
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(15px);
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
   }
-
 }
 
 @keyframes fadeIn {
-
   from {
     opacity: 0;
   }
@@ -974,5 +1134,6 @@ footer {
   to {
     opacity: 1;
   }
-
 }
+
+/* -------------------------------------------------------------------------- */
