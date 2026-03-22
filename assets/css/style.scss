@@ -11,6 +11,8 @@
   padding: 0;
 }
 
+/* -------------------------------------------------------------------------- */
+
 /* -- Base ------------------------------------------------------------------ */
 
 :root {
@@ -31,16 +33,16 @@
   --code-dlc: #CA00CA;
   --code-lng: #CAA5F5;
   --code-alp: #DDDDDD;
-  --code-int: #00FFAA;
-  --code-inc: #FF5500;
-  --code-lex: #55AF55;
-  --code-mut: #DCDCA0;
+  --code-int: #CCCCCC;
+  --code-inc: #AAAAAA;
+  --code-lxc: #55AF95;
+  --code-mtb: #DADCA5;
   --code-sen: #CAA5F5;
   --code-rat: #CAA5F5;
   --code-phr: #A0F0A0;
   --code-fun: #8AB5FA;
   --code-kwd: #559AD5;
-  --code-str: #C05A0F;
+  --code-str: #FF5500;
   --code-cmt: #55AA55;
   --code-blb: #AAAAAA;
   --code-err: #F00F0F;
@@ -51,7 +53,7 @@
   --gap: clamp(1.25rem, 5vw, 2.5rem);
 }
 
-/* #CAA5F5 #C05A0F #A05A05 #55ACD5 #0FF0A0 #1F253A #BFD5F5 */
+/* #C05A0F #A05A05 #55ACD5 #0FF0A0 #1F253A #BFD5F5 */
 
 html {
   scroll-behavior: smooth;
@@ -364,12 +366,12 @@ nav a:hover {
   color: var(--code-inc);
 }
 
-.code-body .lex {
-  color: var(--code-lex);
+.code-body .lxc {
+  color: var(--code-lxc);
 }
 
-.code-body .mut {
-  color: var(--code-mut);
+.code-body .mtb {
+  color: var(--code-mtb);
 }
 
 .code-body .sen {
@@ -1029,12 +1031,12 @@ footer {
   color: var(--code-inc);
 }
 
-.carousel-slide .lex {
-  color: var(--code-lex);
+.carousel-slide .lxc {
+  color: var(--code-lxc);
 }
 
-.carousel-slide .mut {
-  color: var(--code-mut);
+.carousel-slide .mtb {
+  color: var(--code-mtb);
 }
 
 .carousel-slide .sen {
