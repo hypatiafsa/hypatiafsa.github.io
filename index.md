@@ -41,7 +41,7 @@ about:
   label: About
   title: A foundation-agnostic host language for formal systems
   items:
-    - title: The Language
+    - title: The language
       text: >-
         The Hypatia language is a foundation-agnostic host language for defining
         and studying formal systems. It introduces a stratified tower of
@@ -63,14 +63,14 @@ about:
         (c. 500–428 BC), philosopher of mind and matter; the processor Metis,
         after the Titaness of wisdom in Greek mythology; and the language server
         Pythia, after the high priestess of the temple of Apollo at Delphi.
-    - title: The Toolkit
+    - title: The toolkit
       text: >-
         The Hypatia program is a standalone command-line suite built around a
         minimal verifier kernel, which checks the correctness of derivations
         against the user-supplied inference rules. This kernel is intentionally
         kept small and auditable, and does not include tactics or automated
         strategies: it is a verifier, not a full proof assistant.
-    - title: The Library
+    - title: The library
       text: >-
         Hypatia is also intended to serve, in a future release, as a Haskell
         library exposing an API for programmatic access to its components,
@@ -156,11 +156,13 @@ dialects:
         verbose by design. Easy to verify by both automated tools and direct
         human inspection.
 
-
 install:
   label: Getting started
-  title: Install Hypatia
-  ghcup: https://www.haskell.org/ghcup/
+  title: Install & run Hypatia
+  intro: >-
+    Hypatia requires a working Haskell environment (GHC ≥ 9.6.3).
+    We highly recommend <a href="https://www.haskell.org/ghcup/">GHCup</a> to
+    manage your Haskell installation.
   blocks:
     - title: Via Cabal
       commands:
@@ -172,11 +174,13 @@ install:
         - "$ hypatia --version"
     - title: From source
       commands:
-        - "$ git clone $REPO hypatiafsa/hypatia.git"
-        - "$ cd hypatia && cabal install"
+        - "$ git clone git@github.com:hypatiafsa/hypatia.git"
+        - "$ cd hypatia && ./install.sh && hypatia --version"
     - title: Validate a document
       commands:
         - "$ hypatia validator -dSifr --certify doc.hypatia"
+
+
 
 editor:
   label: Editor Support
@@ -193,6 +197,7 @@ editor:
     - Automatic token colours while a Hypatia file is active, restored on switch
     - Optional automatic theme switching (hypatia.style.autotheme)
     - Configurable semantic highlighting per file type
+
 
 
 resources:

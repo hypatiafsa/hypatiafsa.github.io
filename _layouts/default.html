@@ -183,18 +183,12 @@
   </section>
   <!--------------------------------------------------------------------------->
 
-
-  <!-- vvvv TO REVISE vvvv ---------------------------------------------------->
   <!-- Getting Started -------------------------------------------------------->
   <section class="alt">
     <div class="wrap">
       <p class="section-label">{{ page.install.label }}</p>
       <h2>{{ page.install.title }}</h2>
-      <p>
-        Hypatia requires a working Haskell environment (GHC&nbsp;&#8805;&nbsp;9.6.3).
-        We recommend <a href="{{ page.install.ghcup }}">GHCup</a>
-        to manage your Haskell installation.
-      </p>
+      <p>{{ page.install.intro }}</p>
       <div class="install-cols">
         {% for block in page.install.blocks %}
         <div class="install-block">
@@ -216,6 +210,8 @@
   </section>
   <!--------------------------------------------------------------------------->
 
+
+  <!-- vvvv TO REVISE vvvv ---------------------------------------------------->
   <!-- Editor Support --------------------------------------------------------->
   <section>
     <div class="wrap">
