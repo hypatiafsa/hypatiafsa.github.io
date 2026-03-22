@@ -46,7 +46,7 @@
   --code-err: #F00F0F;
   --sans: 'Outfit', Sans-Serif;
   --serif: 'Spectral', Georgia, Serif;
-  --mono: 'Fira Mono', 'JetBrains Mono', Monospace;
+  --mono: 'Fira Code', 'JetBrains Mono', Monospace;
   --max: 1060px;
   --gap: clamp(1.25rem, 5vw, 2.5rem);
 }
@@ -901,7 +901,7 @@ footer {
 
 .carousel-titlebar {
   background: var(--code-tb);
-  padding: 0.5rem 0.9rem;
+  padding: 0.55rem 0.95rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -993,7 +993,7 @@ footer {
 .carousel-slide {
   position: absolute;
   inset: 0;
-  padding: 1.2rem 0.75rem;
+  padding: 1.25rem 0.75rem;
   font-family: var(--mono);
   font-size: 0.8rem;
   line-height: 1.65;
