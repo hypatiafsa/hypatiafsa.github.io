@@ -144,7 +144,9 @@
       <div class="features-grid">
         {% for item in page.features.items %}
         <div class="feature-card">
+          {% if item.icon %}
           <span class="feature-icon">{{ item.icon }}</span>
+          {% endif %}
           <h3>{{ item.title }}{% if item.badge %}<span class="feature-badge">({{ item.badge }})</span>{% endif %}</h3>
           <p>{{ item.text }}</p>
         </div>
@@ -269,7 +271,9 @@
         {% assign linkhref = rsc.url %}
         {% endif %}
         <a class="link-card" href={{ linkhref }}>
+          {% if rsc.icon %}
           <span class="link-card-icon">{{ rsc.icon }}</span>
+          {% endif %}
           <span class="link-card-title">{{ rsc.title }}</span>
           <span class="link-card-sub">{{ rsc.sub }}</span>
         </a>

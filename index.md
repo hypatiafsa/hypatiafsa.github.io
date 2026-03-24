@@ -81,40 +81,34 @@ features:
   label: Features
   title: What you can do with Hypatia
   items:
-    - icon: "\u2713"
-      title: Mechanised Verification
+    - title: Mechanised Verification
       text: >-
         Check that every proof step follows from the declared inference rules of
         the chosen dialect, with no hidden automation, oracles, or trusted black
         boxes.
-    - icon: "\U0001F5FC"
-      title: Dialect Tower
+    - title: Dialect Tower
       text: >-
         Write proofs at the level of abstraction you prefer: the minimal and
         explicit Sunya, the sugar-coated Sifr, or the ergonomic surface language
         Zero.
-    - icon: "\u2696\uFE0F"
-      title: Theory Neutrality
+    - title: Theory Neutrality
       text: >-
         Hypatia imposes no logical framework or built-in axioms. It can encode
         classical logic, intuitionistic logic, type theory, or entirely custom
         inference systems.
-    - icon: "\U0001F4DC"
-      title: Proof Certification
+    - title: Proof Certification
       badge: planned
       text: >-
         Generate syntactic or semantic certificates witnessing successful
         validation, supporting trusted verification pipelines and independent
         audit trails.
-    - icon: "\U0001F501"
-      title: Transformations
+    - title: Transformations
       badge: beta
       text: >-
         Translates Hypatia documents from and to other frameworks including
         Metamath, Mizar, Isabelle, and Lean, enabling interoperability across
         formal ecosystems.
-    - icon: "\U0001F50C"
-      title: Language Server
+    - title: Language Server
       badge: beta
       text: >-
         Pythia provides IDE integration via the Language Server Protocol,
