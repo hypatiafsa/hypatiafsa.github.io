@@ -198,58 +198,58 @@ resources:
   label: Resources
   title: Documentation and Community
   items:
-    - icon: "\U0001F4D6"
+    - #icon: "\U0001F4D6"
       title: Language
       sub: Grammar and Constructs
       kind: blob
       path: /doc/hypatia.md
-    - icon: "\U0001F3DB\uFE0F"
+    - #icon: "\U0001F3DB\uFE0F"
       title: Architecture
       sub: Haskell Software Design
       kind: blob
       path: /doc/architecture.md
-    - icon: "\U0001F4DA"
+    - #icon: "\U0001F4DA"
       title: Dialect Formalisations
       sub: Sunya, Sifr, and Zero
       kind: tree
       path: /hyp
-    - icon: "\U0001F4D0"
+    - #icon: "\U0001F4D0"
       title: Document Examples
       sub: "MIU, SKI, and many more"
       kind: tree
       path: /exm
-    - icon: "\U0001F419"
+    - #icon: "\U0001F419"
       title: GitHub Organisation
       sub: Source, Issues, and Discussions
       url: https://github.com/hypatiafsa
-    - icon: "\U0001F3F7\uFE0F"
+    - #icon: "\U0001F3F7\uFE0F"
       title: Versioning Policy
       sub: Epoch-Based Versioning
       kind: blob
       path: '#versioning'
-    - icon: "\u2699\uFE0F"
+    - #icon: "\u2699\uFE0F"
       title: Installation Guide
       sub: Full Setup Instructions
       kind: blob
       path: '#installation'
-    - icon: "\u276F\u2581"
+    - #icon: "\u276F\u2581"
       title: Usage Guide
       sub: Command-Line Reference
       kind: blob
       path: '#usage'
-    - icon: "\U0001F4E6"
+    - #icon: "\U0001F4E6"
       title: Hackage
       sub: Latest Release on the Haskell Package Repository
       key: hackage
-    - icon: "\U0001F4E6"
+    - #icon: "\U0001F4E6"
       title: Stackage
       sub: Release on the Stable Set of Haskell Package Repository
       key: stackage
-    - icon: "\U0001F9E9"
+    - #icon: "\U0001F9E9"
       title: Visual Studio Marketplace
       sub: VSCode Extension on the Visual Studio Marketplace
       key: vscode_marketplace
-    - icon: "\U0001F9E9"
+    - #icon: "\U0001F9E9"
       title: Open VSX Registry
       sub: VSCode Extension on the Open VSX Registry
       key: vscode_openvsx
