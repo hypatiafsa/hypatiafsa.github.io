@@ -27,30 +27,30 @@ vscode_openvsx: https://open-vsx.org/extension/HypatiaFSA/hypatia
 header:
   links:
     - label: Architecture
-      kind: blob
       path: /doc/architecture.md
-    - label: Language
       kind: blob
+    - label: Language
       path: /doc/hypatia.md
+      kind: blob
     - label: Formalisation
-      kind: tree
       path: /hyp
-    - label: Examples
       kind: tree
+    - label: Examples
       path: /exm
+      kind: tree
 
 footer:
   copyright: "Copyright © 2025-2026, the Hypatia Development Team."
   links:
     - label: Source
-      kind: tree
       path: /
+      kind: tree
     - label: Issues
-      kind: root
       path: /issues
+      kind: root
     - label: Changelog
-      kind: blob
       path: /changelog.md
-    - label: Contributors
       kind: blob
+    - label: Contributors
       path: /contributors.txt
+      kind: blob

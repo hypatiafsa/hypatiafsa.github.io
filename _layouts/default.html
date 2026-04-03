@@ -160,7 +160,10 @@
             {% for block in page.dialects.blocks %}
             <div class="dialect-row">
               <div>
-                <div class="dialect-name">{{ block.name }}</div>
+                <div class="dialect-name">
+                  {% include links.html item=block %}
+                  <a href="{{ linkhref }}">{{ block.name }}</a>
+                </div>
                 <div class="dialect-tag {{ block.class }}">{{ block.tag }}</div>
               </div>
               <div class="dialect-desc">{{ block.text }}</div>

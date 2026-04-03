@@ -131,18 +131,24 @@ dialects:
         object in formal reasoning.
   blocks:
     - name: Zero
+      path: /doc/hypatia.md#zeros-constructs
+      kind: blob
       tag: experimental
       class: tag-experimental
       text: >-
         Ergonomic surface language with richer sequencing and higher-level proof
         structuring constructs. Under active design; not yet stable.
     - name: Sifr
+      path: /doc/hypatia.md#sifrs-constructs
+      kind: blob
       tag: syntactic sugar
       class: tag-sugar
       text: >-
         Shorthand notations layered over Sunya with no additional expressive
         power. Every Sifr construct desugars to Sunya deterministically.
     - name: Sunya
+      path: /doc/hypatia.md#sunyas-constructs
+      kind: blob
       tag: stable core
       class: tag-stable
       text: >-
