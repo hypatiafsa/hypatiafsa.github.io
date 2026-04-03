@@ -3,16 +3,17 @@
   <div class="carousel-titlebar">
     <span class="carousel-filename" id="carousel-filename">Hofstadter's MIU System</span>
     <div class="carousel-controls">
-      <button class="wm-btn wm-min" aria-label="Minimise" tabindex="-1"></button>
-      <button class="wm-btn wm-max" aria-label="Maximise" tabindex="-1"></button>
-      <button class="wm-btn wm-cls" aria-label="Close" tabindex="-1"></button>
+      <button class="wm-btn wm-min" aria-hidden="true"></button>
+      <button class="wm-btn wm-max" aria-hidden="true"></button>
+      <button class="wm-btn wm-cls" aria-hidden="true"></button>
     </div>
   </div>
 
   <div class="carousel-body">
 
     <!-- 1 · MIU -------------------------------------------------------------->
-    <div class="carousel-slide active" data-filename="Hofstadter's MIU System">
+    <div id="panel-miu" aria-labelledby="tab-miu" role="tabpanel" class="carousel-slide active"
+      data-filename="Hofstadter's MIU System">
       <pre><span class="kwd">$Hypatia</span> <span class="dlc">Sifr</span> <span class="kwd">$:</span>
 <span class="kwd">$Lingua</span> <span class="lng">MIU</span> <span class="kwd">$:</span>
 
@@ -21,8 +22,8 @@
   <span class="kwd">$Lexicon</span> <span class="lxc">M I U</span> <span class="kwd">$.</span>
   <span class="kwd">$Mutabilia</span> <span class="mtb">x y</span> <span class="kwd">$.</span>
 
-  <span class="kwd">$Principium</span> <span class="sen">MI</span> <span class="kwd">$:</span> <span class="lxc">MI</span> <span class="kwd">$.</span>
   <span class="kwd">$Regula</span> <span class="rat">I</span>   <span class="kwd">$:</span> <span class="mtb">x</span><span class="lxc">I</span>    <span class="kwd">$-</span> <span class="mtb">x</span><span class="lxc">IU</span> <span class="kwd">$.</span>
+  <span class="kwd">$Principium</span> <span class="sen">MI</span> <span class="kwd">$:</span> <span class="lxc">MI</span> <span class="kwd">$.</span>
   <span class="kwd">$Regula</span> <span class="rat">M</span>   <span class="kwd">$:</span> <span class="lxc">M</span><span class="mtb">x</span>    <span class="kwd">$-</span> <span class="lxc">M</span><span class="mtb">xx</span> <span class="kwd">$.</span>
   <span class="kwd">$Regula</span> <span class="rat">III</span> <span class="kwd">$:</span> <span class="mtb">x</span><span class="lxc">III</span><span class="mtb">y</span> <span class="kwd">$-</span> <span class="mtb">x</span><span class="lxc">U</span><span class="mtb">y</span> <span class="kwd">$.</span>
   <span class="kwd">$Regula</span> <span class="rat">UU</span>  <span class="kwd">$:</span> <span class="mtb">x</span><span class="lxc">UU</span><span class="mtb">y</span>  <span class="kwd">$-</span> <span class="mtb">xy</span>  <span class="kwd">$.</span>
@@ -42,7 +43,8 @@
     <!------------------------------------------------------------------------->
 
     <!-- 2 · SKI -------------------------------------------------------------->
-    <div class="carousel-slide" data-filename="Schönfinkel's SKI Combinator Calculus">
+    <div id="panel-ski" aria-labelledby="tab-ski" role="tabpanel" class="carousel-slide"
+      data-filename="Schönfinkel's SKI Combinator Calculus">
       <pre><span class="kwd">$Hypatia</span> <span class="dlc">Sifr</span> <span class="kwd">$:</span>
 <span class="kwd">$Lingua</span> <span class="lng">SKI</span> <span class="kwd">$:</span>
 
@@ -72,7 +74,8 @@
     <!------------------------------------------------------------------------->
 
     <!-- 3 · A::B ------------------------------------------------------------->
-    <div class="carousel-slide" data-filename="Taelin's A::B System">
+    <div id="panel-ab" aria-labelledby="tab-ab" role="tabpanel" class="carousel-slide"
+      data-filename="Taelin's A::B System">
       <pre><span class="kwd">$Hypatia</span> <span class="dlc">Sifr</span> <span class="kwd">$:</span>
 <span class="kwd">$Lingua</span> <span class="lng">A::B</span> <span class="kwd">$:</span>
 
@@ -108,9 +111,12 @@
   </div>
 
   <div class="carousel-dots" role="tablist" aria-label="Examples">
-    <button class="carousel-dot active" data-index="0" aria-label="MIU" role="tab" aria-selected="true"></button>
-    <button class="carousel-dot" data-index="1" aria-label="SKI" role="tab" aria-selected="false"></button>
-    <button class="carousel-dot" data-index="2" aria-label="A::B" role="tab" aria-selected="false"></button>
+    <button id="tab-miu" aria-controls="panel-miu" class="carousel-dot active" data-index="0" aria-label="MIU"
+      role="tab" aria-selected="true"></button>
+    <button id="tab-ski" aria-controls="panel-ski" class="carousel-dot" data-index="1" aria-label="SKI" role="tab"
+      aria-selected="false"></button>
+    <button id="tab-ab" aria-controls="panel-ab" class="carousel-dot" data-index="2" aria-label="A::B" role="tab"
+      aria-selected="false"></button>
   </div>
 
 </div>

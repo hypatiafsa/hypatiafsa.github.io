@@ -1,0 +1,13 @@
+{% if include.item.path %}
+{% if include.item.kind == 'blob' %}
+{% assign linkhref = blob | append: include.item.path %}
+{% elsif include.item.kind == 'tree' %}
+{% assign linkhref = tree | append: include.item.path %}
+{% else %}
+{% assign linkhref = repo | append: include.item.path %}
+{% endif %}
+{% elsif include.item.key %}
+{% assign linkhref = site[include.item.key] %}
+{% elsif include.item.url %}
+{% assign linkhref = include.item.url %}
+{% endif %}

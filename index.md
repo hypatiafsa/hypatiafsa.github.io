@@ -5,27 +5,27 @@ hero:
   eyebrow: Formal-System Assistant Toolkit
   title: Verify. Analyse. <br> Process.
   tagline: >-
-    Hypatia is an open-source formal language and toolkit designed to support
-    the verification, analysis, and processing of user-defined formal systems
-    crafted in the Hypatia language and its evolving dialects.
+    Hypatia is an open-source toolkit designed to verify, analyse, and process
+    user-defined formal systems crafted in the eponymous language and its
+    evolving dialects.
   buttons:
     - label: Install
-      kind: blob
       path: '#installation'
-      class: btn-primary
-    - label: Documentation
       kind: blob
+      class: button-primary
+    - label: Documentation
       path: '#documentation'
-      class: btn-ghost
+      kind: blob
+      class: button-ghost
     - label: GitHub
-      kind: tree
       path: /
-      class: btn-ghost
+      kind: tree
+      class: button-ghost
 
 badges:
   - alt: Release
-    kind: root
     path: /releases
+    kind: root
     img: https://img.shields.io/github/v/release/hypatiafsa/hypatia?label=Release
   - alt: Hackage
     key: hackage
@@ -51,8 +51,7 @@ about:
         trust. Like Metamath, Hypatia treats all statements as sequences of
         symbols, without imposing built-in syntactic structure or semantic
         interpretation. Like Mizar, it favours an intelligible, self-explaining
-        syntax designed to be readable by both humans and tools without
-        additional commentary.
+        syntax designed to be readable by humans and tools.
     - title: Named after
       text: >-
         Hypatia of Alexandria (c.350/370–415 AD), mathematician, astronomer, and
@@ -93,9 +92,9 @@ features:
         Zero.
     - title: Theory Neutrality
       text: >-
-        Hypatia imposes no logical framework or built-in axioms. It can encode
-        classical logic, intuitionistic logic, type theory, or entirely custom
-        inference systems.
+        Hypatia imposes no logical framework or built-in axioms. It allows to
+        encode classical logic, intuitionistic logic, type theory, or entirely
+        custom inference systems.
     - title: Proof Certification
       badge: planned
       text: >-
@@ -122,13 +121,14 @@ dialects:
     - text: >-
         The dialect tower is a stratified hierarchy in which each layer compiles
         deterministically to the one below it, so the Sunya verifier remains the
-        single trusted root of the entire system.
-        Sunya's own semantics is formally defined within Sunya itself, enabling
-        bootstrapping and self certification.
+        single trusted root of the entire software system.
+        Sunya's own semantics is formally defined within the dialect itself,
+        enabling bootstrapping and self-certification.
     - text: >-
-        Sunya, Sifr, and Zero take their names from the word for 'zero' in
-        Sanskrit, Arabic, and Latin respectively; a nod to the foundational role
-        of the minimal object in formal reasoning.
+        Sunya, Sifr, and Zero, the dialects currently supported by the toolkit,
+        take their names from the word for 'zero' in Sanskrit, Arabic, and
+        Latin, respectively; a nod to the foundational role of the minimal
+        object in formal reasoning.
   blocks:
     - name: Zero
       tag: experimental
@@ -147,14 +147,15 @@ dialects:
       class: tag-stable
       text: >-
         The minimal self-defining foundation of the tower. Explicit and
-        verbose by design. Easy to verify by both automated tools and direct
+        verbose by design; easy to verify by both automated tools and direct
         human inspection.
 
 install:
   label: Getting started
   title: Install & run Hypatia
   intro: >-
-    Hypatia requires a working Haskell environment (GHC ≥ 9.6.3).
+    Hypatia requires a working <a href="https://www.haskell.org/">Haskell</a>
+    environment (<a href="https://www.haskell.org/ghc/">GHC</a> >= 9.6.3).
     We highly recommend <a href="https://www.haskell.org/ghcup/">GHCup</a> to
     manage your Haskell installation.
   blocks:
@@ -174,83 +175,68 @@ install:
       commands:
         - "$ hypatia validator -dSifr --certify doc.hypatia"
 
-
-
 editor:
   label: Editor Support
-  title: VS Code extension
-  intro: >-
-    Hypatia-VSCode provides first-class editor support for the Hypatia language
-    in Visual Studio Code, making Hypatia documents pleasant to read and write
-    through language-aware behaviour, syntax highlighting, and sensible
-    defaults that integrate cleanly with your existing setup.
+  title: Seamless integration for VS Code
+  text: >-
+    Hypatia-VSCode provides editor support for the Hypatia language in Visual
+    Studio Code, making Hypatia documents pleasant to read and write through
+    language-aware behaviour, syntax highlighting, and sensible defaults that
+    integrate cleanly with your setup.
   features:
-    - Syntax highlighting for *.hyp and *.hypatia files
     - Bundled light and dark colour themes
-    - Token-colour overlay that leaves your global VS Code theme untouched
-    - Automatic token colours while a Hypatia file is active, restored on switch
-    - Optional automatic theme switching (hypatia.style.autotheme)
-    - Configurable semantic highlighting per file type
-
-
+    - Syntax highlighting for *.hyp and *.hypatia files
+    - Automatic token-colour overlay while a Hypatia file is active
+  block:
+    title: Quick Install
+    text: Launch VS Code, press <box>Ctrl+P</box>, paste the following command,
+      and press enter.</br> <box>ext install hypatiafsa.hypatia</box>
 
 resources:
   label: Resources
   title: Documentation and Community
   items:
-    - #icon: "\U0001F4D6"
-      title: Language
-      sub: Grammar and Constructs
-      kind: blob
-      path: /doc/hypatia.md
-    - #icon: "\U0001F3DB\uFE0F"
-      title: Architecture
+    - title: Architecture
       sub: Haskell Software Design
-      kind: blob
       path: /doc/architecture.md
-    - #icon: "\U0001F4DA"
-      title: Dialect Formalisations
+      kind: blob
+    - title: Language
+      sub: Grammar and Constructs
+      path: /doc/hypatia.md
+      kind: blob
+    - title: Dialect Formalisations
       sub: Sunya, Sifr, and Zero
-      kind: tree
       path: /hyp
-    - #icon: "\U0001F4D0"
-      title: Document Examples
-      sub: "MIU, SKI, and many more"
       kind: tree
+    - title: Document Examples
+      sub: "MIU, SKI, and many more"
       path: /exm
-    - #icon: "\U0001F419"
-      title: GitHub Organisation
+      kind: tree
+    - title: GitHub Organisation
       sub: Source, Issues, and Discussions
       url: https://github.com/hypatiafsa
-    - #icon: "\U0001F3F7\uFE0F"
-      title: Versioning Policy
+    - title: Versioning Policy
       sub: Epoch-Based Versioning
-      kind: blob
       path: '#versioning'
-    - #icon: "\u2699\uFE0F"
-      title: Installation Guide
+      kind: blob
+    - title: Installation Guide
       sub: Full Setup Instructions
-      kind: blob
       path: '#installation'
-    - #icon: "\u276F\u2581"
-      title: Usage Guide
-      sub: Command-Line Reference
       kind: blob
+    - title: Usage Guide
+      sub: Command-Line Reference
       path: '#usage'
-    - #icon: "\U0001F4E6"
-      title: Hackage
+      kind: blob
+    - title: Hackage
       sub: Latest Release on the Haskell Package Repository
       key: hackage
-    - #icon: "\U0001F4E6"
-      title: Stackage
+    - title: Stackage
       sub: Release on the Stable Set of Haskell Package Repository
       key: stackage
-    - #icon: "\U0001F9E9"
-      title: Visual Studio Marketplace
+    - title: Visual Studio Marketplace
       sub: VSCode Extension on the Visual Studio Marketplace
       key: vscode_marketplace
-    - #icon: "\U0001F9E9"
-      title: Open VSX Registry
+    - title: Open VSX Registry
       sub: VSCode Extension on the Open VSX Registry
       key: vscode_openvsx
 ---

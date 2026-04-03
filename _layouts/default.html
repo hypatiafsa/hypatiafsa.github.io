@@ -21,6 +21,7 @@
   <meta name="description" content="{{ page.description | default: site.description }}">
   <meta property="og:title" content="{{ page.title | default: site.title }}">
   <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:image" content="{{ '/assets/images/favicon.svg' | absolute_url }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:type" content="website">
 
@@ -29,6 +30,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Fira+Mono:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
 
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
   <link rel="manifest" href="/assets/includes/website.manifest" />
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="shortcut icon" href="/assets/images/favicon.ico" />
@@ -45,22 +47,16 @@
 
 <body>
 
-  <!-- Topbar ----------------------------------------------------------------->
+  <!-- Header ----------------------------------------------------------------->
   <header class="topbar">
     <div class="topbar-inner">
-      <a href="{{ '/' | relative_url }}" class="logo-mark">
-        <img src="{{ '/assets/images/hypatia.png' | relative_url }}" alt="{{ site.title }}" class="logo-topbar">
+      <a class="logo-mark" href="{{ '/' | relative_url }}">
+        <img class="logo-topbar" src="{{ '/assets/images/hypatia.png' | relative_url }}" alt="{{ site.title }}">
         {{ site.title }}
       </a>
       <nav>
         {% for link in site.header.links %}
-        {% if link.kind == 'blob' %}
-        {% assign linkhref = blob | append: link.path %}
-        {% elsif link.kind == 'tree' %}
-        {% assign linkhref = tree | append: link.path %}
-        {% else %}
-        {% assign linkhref = repo | append: link.path %}
-        {% endif %}
+        {% include links.html item=link %}
         <a href="{{ linkhref }}">{{ link.label }}</a>
         {% endfor %}
       </nav>
@@ -68,246 +64,210 @@
   </header>
   <!--------------------------------------------------------------------------->
 
-  {% if page.hero %}
+  <main>
 
-  <!-- Hero ------------------------------------------------------------------->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <img src="{{ '/assets/images/hypatia.png' | relative_url }}" alt="{{ site.title }} logo" class="hero-logo">
-        <p class="hero-eyebrow">{{ page.hero.eyebrow }}</p>
-        <h1 class="hero-title">{{ page.hero.title }}</h1>
-        <p class="hero-tagline">{{ page.hero.tagline }}</p>
-        <div class="hero-actions">
-          {% for button in page.hero.buttons %}
-          {% if button.path %}
-          {% if button.kind == 'blob' %}
-          {% assign linkhref = blob | append: button.path %}
-          {% elsif button.kind == 'tree' %}
-          {% assign linkhref = tree | append: button.path %}
-          {% else %}
-          {% assign linkhref = repo | append: button.path %}
-          {% endif %}
-          {% else %}
-          {% assign linkhref = button.url %}
-          {% endif %}
-          <a href="{{ linkhref }}" class="btn {{ button.class }}">{{ button.label }}</a>
-          {% endfor %}
+    {% if page.hero %}
+
+    <!-- Hero ----------------------------------------------------------------->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <img class="hero-logo" src="{{ '/assets/images/hypatia.png' | relative_url }}" alt="{{ site.title }} logo">
+          <p class="hero-eyebrow">{{ page.hero.eyebrow }}</p>
+          <h1 class="hero-title">{{ page.hero.title }}</h1>
+          <p class="hero-tagline">{{ page.hero.tagline }}</p>
+          <div class="hero-actions">
+            {% for button in page.hero.buttons %}
+            {% include links.html item=button %}
+            <a class="button {{ button.class }}" href="{{ linkhref }}">{{ button.label }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="hero-code" aria-hidden="true">
+          {% include examples.html %}
         </div>
       </div>
-      <div class="hero-code" aria-hidden="true">
-        {% include examples.html %}
-      </div>
-    </div>
-  </section>
-  <!--------------------------------------------------------------------------->
+    </section>
+    <!------------------------------------------------------------------------->
 
-  <!-- Badges ----------------------------------------------------------------->
-  <div class="badges">
-    <div class="badges-inner">
-      {% for badge in page.badges %}
-      {% if badge.path %}
-      {% assign linkhref = repo | append: badge.path %}
-      {% elsif badge.key %}
-      {% assign linkhref = site[badge.key] %}
-      {% else %}
-      {% assign linkhref = badge.url %}
-      {% endif %}
-      <a href="{{ linkhref }}"><img src="{{ badge.img }}" alt="{{ badge.alt }}"></a>
-      {% endfor %}
-    </div>
-  </div>
-  <!--------------------------------------------------------------------------->
-
-  <!-- About ------------------------------------------------------------------>
-  <section>
-    <div class="wrap">
-      <p class="section-label">{{ page.about.label }}</p>
-      <h2>{{ page.about.title }}</h2>
-      <div class="about-grid">
-        {% for item in page.about.items %}
-        <div>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.text }}</p>
-        </div>
+    <!-- Badges --------------------------------------------------------------->
+    {% if page.badges %}
+    <div class="badges">
+      <div class="badges-inner">
+        {% for badge in page.badges %}
+        {% include links.html item=badge %}
+        <a href="{{ linkhref }}"><img src="{{ badge.img }}" alt="{{ badge.alt }}"></a>
         {% endfor %}
       </div>
     </div>
-  </section>
-  <!--------------------------------------------------------------------------->
+    {% endif %}
+    <!------------------------------------------------------------------------->
 
-  <!-- Features --------------------------------------------------------------->
-  <section class="alt">
-    <div class="wrap">
-      <p class="section-label">{{ page.features.label }}</p>
-      <h2>{{ page.features.title }}</h2>
-      <div class="features-grid">
-        {% for item in page.features.items %}
-        <div class="feature-card">
-          {% if item.icon %}
-          <span class="feature-icon">{{ item.icon }}</span>
-          {% endif %}
-          <h3>{{ item.title }}{% if item.badge %}<span class="feature-badge">({{ item.badge }})</span>{% endif %}</h3>
-          <p>{{ item.text }}</p>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-  <!--------------------------------------------------------------------------->
-
-  <!-- Dialects --------------------------------------------------------------->
-  <section>
-    <div class="wrap">
-      <div class="dialects-wrap">
-        <div>
-          <p class="section-label">{{ page.dialects.label }}</p>
-          <h2>{{ page.dialects.title }}</h2>
-          {% for item in page.dialects.items %}
+    <!-- About ---------------------------------------------------------------->
+    {% if page.about %}
+    <section>
+      <div class="wrap">
+        <p class="section-label">{{ page.about.label }}</p>
+        <h2>{{ page.about.title }}</h2>
+        <p>{{ page.about.intro }}</p>
+        <div class="about-grid">
+          {% for item in page.about.items %}
           <div>
+            <h3>{{ item.title }}</h3>
             <p>{{ item.text }}</p>
           </div>
           {% endfor %}
         </div>
-        <div class="dialect-tower">
-          {% for block in page.dialects.blocks %}
-          <div class="dialect-row">
-            <div>
-              <div class="dialect-name">{{ block.name }}</div>
-              <div class="dialect-tag {{ block.class }}">{{ block.tag }}</div>
-            </div>
-            <div class="dialect-desc">{{ block.text }}</div>
+      </div>
+    </section>
+    {% endif %}
+    <!------------------------------------------------------------------------->
+
+    <!-- Features ------------------------------------------------------------->
+    {% if page.features %}
+    <section class="alt">
+      <div class="wrap">
+        <p class="section-label">{{ page.features.label }}</p>
+        <h2>{{ page.features.title }}</h2>
+        <p>{{ page.about.intro }}</p>
+        <div class="features-grid">
+          {% for item in page.features.items %}
+          <div class="feature-card">
+            {% if item.icon %}<span class="feature-icon">{{ item.icon }}</span>{% endif %}
+            <h3>{{ item.title }}{% if item.badge %}<span class="feature-badge">({{ item.badge }})</span>{% endif %}</h3>
+            <p>{{ item.text }}</p>
           </div>
           {% endfor %}
         </div>
       </div>
-    </div>
-  </section>
-  <!--------------------------------------------------------------------------->
+    </section>
+    {% endif %}
+    <!------------------------------------------------------------------------->
 
-  <!-- Getting Started -------------------------------------------------------->
-  <section class="alt">
-    <div class="wrap">
-      <p class="section-label">{{ page.install.label }}</p>
-      <h2>{{ page.install.title }}</h2>
-      <p>{{ page.install.intro }}</p>
-      <div class="install-cols">
-        {% for block in page.install.blocks %}
-        <div class="install-block">
-          <h3>{{ block.title }}</h3>
-          <div class="code-inline">
-            {% for line in block.commands %}
-            {% if line contains "$ " %}
-            <span class="prompt">$</span>&nbsp;<span class="cmd">{{ line | remove_first: "$ " }}</span>
-            {% else %}
-            <span class="cmd">{{ line }}</span>
-            {% endif %}
-            {% unless forloop.last %}<br>{% endunless %}
+    <!-- Dialects ------------------------------------------------------------->
+    {% if page.dialects %}
+    <section>
+      <div class="wrap">
+        <div class="dialects-wrap">
+          <div>
+            <p class="section-label">{{ page.dialects.label }}</p>
+            <h2>{{ page.dialects.title }}</h2>
+            {% for item in page.dialects.items %}
+            <p>{{ item.text }}</p>
+            {% endfor %}
+          </div>
+          <div class="dialect-tower">
+            {% for block in page.dialects.blocks %}
+            <div class="dialect-row">
+              <div>
+                <div class="dialect-name">{{ block.name }}</div>
+                <div class="dialect-tag {{ block.class }}">{{ block.tag }}</div>
+              </div>
+              <div class="dialect-desc">{{ block.text }}</div>
+            </div>
             {% endfor %}
           </div>
         </div>
-        {% endfor %}
       </div>
-    </div>
-  </section>
-  <!--------------------------------------------------------------------------->
+    </section>
+    {% endif %}
+    <!------------------------------------------------------------------------->
 
-
-  <!-- vvvv TO REVISE vvvv ---------------------------------------------------->
-  <!-- Editor Support --------------------------------------------------------->
-  <section>
-    <div class="wrap">
-      <p class="section-label">{{ page.editor.label }}</p>
-      <h2>{{ page.editor.title }}</h2>
-      <div class="editor-wrap">
-        <div class="editor-text">
-          <p style="margin-bottom:1.2rem;">{{ page.editor.intro }}</p>
-          <ul class="editor-features">
-            {% for f in page.editor.features %}
-            <li>{{ f }}</li>
-            {% endfor %}
-          </ul>
-          <div class="editor-actions">
-            <a href="{{ site.vscode_marketplace }}" class="button button-primary">VS Code Marketplace</a>
-            <a href="{{ site.vscode_openvsx }}" class="button button-ghost">Open VSX</a>
-            <a href="{{ site.vscode_repo }}" class="button button-ghost">Source on GitHub</a>
+    <!-- Getting Started ------------------------------------------------------>
+    {% if page.install %}
+    <section class="alt">
+      <div class="wrap">
+        <p class="section-label">{{ page.install.label }}</p>
+        <h2>{{ page.install.title }}</h2>
+        <p>{{ page.install.intro }}</p>
+        <div class="install-cols">
+          {% for block in page.install.blocks %}
+          <div class="install-block">
+            <h3>{{ block.title }}</h3>
+            <div class="code-inline">
+              {% for line in block.commands %}
+              {% if line contains "$ " %}
+              <span class="prompt">$</span>&nbsp;<span class="cmd">{{ line | remove_first: "$ " }}</span>
+              {% else %}
+              <span class="cmd">{{ line }}</span>
+              {% endif %}
+              {% unless forloop.last %}<br>{% endunless %}
+              {% endfor %}
+            </div>
           </div>
-        </div>
-        <div class="editor-install">
-          <p class="install-block-label">Quick install</p>
-          <div class="code-inline">
-            <span class="prompt">ext install</span>&nbsp;<span class="cmd">HypatiaFSA.hypatia</span>
-          </div>
-          <p class="editor-hint">
-            Or press <kbd>Ctrl+P</kbd> in VS Code and paste:<br>
-            <code>ext install HypatiaFSA.hypatia</code>
-          </p>
+          {% endfor %}
         </div>
       </div>
-    </div>
-  </section>
-  <!--------------------------------------------------------------------------->
-  <!-- ^^^^ TO REVISE ^^^^ ---------------------------------------------------->
+    </section>
+    {% endif %}
+    <!------------------------------------------------------------------------->
 
+    <!-- Editor Support ------------------------------------------------------->
+    {% if page.editor %}
+    <section>
+      <div class="wrap">
+        <div class="editor-wrap">
+          <div>
+            <p class="section-label">{{ page.editor.label }}</p>
+            <h2>{{ page.editor.title }}</h2>
+            <p>{{ page.editor.text }}</p>
+            <ul class="editor-features">
+              {% for feature in page.editor.features %}
+              <li>{{ feature }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="editor-install">
+            <p class="editor-install-label">{{ page.editor.block.title }}</p>
+            <p class="editor-install-text">{{ page.editor.block.text }}</p>
+            <p class="editor-install-code">{{ page.editor.block.code }}</p>
+          </div>
+        </div>
+    </section>
+    {% endif %}
+    <!------------------------------------------------------------------------->
 
-  <!-- Resources -------------------------------------------------------------->
-  <section class="alt">
-    <div class="wrap">
-      <p class="section-label">{{ page.resources.label }}</p>
-      <h2>{{ page.resources.title }}</h2>
-      <div class="links-grid">
-        {% for rsc in page.resources.items %}
-        {% if rsc.key %}
-        {% assign linkhref = site[rsc.key] %}
-        {% elsif rsc.path %}
-        {% if rsc.kind == 'blob' %}
-        {% assign linkhref = blob | append: rsc.path %}
-        {% elsif rsc.kind == 'tree' %}
-        {% assign linkhref = tree | append: rsc.path %}
-        {% else %}
-        {% assign linkhref = repo | append: rsc.path %}
-        {% endif %}
-        {% else %}
-        {% assign linkhref = rsc.url %}
-        {% endif %}
-        <a class="link-card" href={{ linkhref }}>
-          {% if rsc.icon %}
-          <span class="link-card-icon">{{ rsc.icon }}</span>
-          {% endif %}
-          <span class="link-card-title">{{ rsc.title }}</span>
-          <span class="link-card-sub">{{ rsc.sub }}</span>
-        </a>
-        {% endfor %}
+    <!-- Resources ------------------------------------------------------------>
+    {% if page.resources %}
+    <section class="alt">
+      <div class="wrap">
+        <p class="section-label">{{ page.resources.label }}</p>
+        <h2>{{ page.resources.title }}</h2>
+        <p>{{ page.resources.intro }}</p>
+        <div class="links-grid">
+          {% for rsc in page.resources.items %}
+          {% include links.html item=rsc %}
+          <a class="link-card" href={{ linkhref }}>
+            {% if rsc.icon %}<span class="link-card-icon">{{ rsc.icon }}</span>{% endif %}
+            <span class="link-card-title">{{ rsc.title }}</span>
+            <span class="link-card-sub">{{ rsc.sub }}</span>
+          </a>
+          {% endfor %}
+        </div>
       </div>
+    </section>
+    {% endif %}
+    <!------------------------------------------------------------------------->
+
+    {% else %}
+
+    <!-- Generic Inner-Page Content ------------------------------------------->
+    <div class="page-content">
+      {{ content }}
     </div>
-  </section>
-  <!--------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------->
 
-  {% else %}
+    {% endif %}
 
-  <!-- Generic Inner-Page Content --------------------------------------------->
-  <div class="page-content">
-    {{ content }}
-  </div>
-  <!--------------------------------------------------------------------------->
-
-  {% endif %}
+  </main>
 
   <!-- Footer ----------------------------------------------------------------->
   <footer>
     <div class="footer-inner">
-      <p class="footer-copy">
-        {{ site.footer.copyright }}
-      </p>
+      <p class="footer-copy">{{ site.footer.copyright }}</p>
       <div class="footer-links">
         {% for link in site.footer.links %}
-        {% if link.kind == 'blob' %}
-        {% assign linkhref = blob | append: link.path %}
-        {% elsif link.kind == 'tree' %}
-        {% assign linkhref = tree | append: link.path %}
-        {% else %}
-        {% assign linkhref = repo | append: link.path %}
-        {% endif %}
+        {% include links.html item=link %}
         <a href={{ linkhref }}>{{ link.label }}</a>
         {% endfor %}
       </div>
