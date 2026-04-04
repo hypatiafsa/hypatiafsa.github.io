@@ -109,12 +109,12 @@
       <div class="wrap">
         <p class="section-label">{{ page.about.label }}</p>
         <h2>{{ page.about.title }}</h2>
-        <p>{{ page.about.intro }}</p>
+        {{ page.about.intro | markdownify }}
         <div class="about-grid">
           {% for item in page.about.items %}
           <div>
             <h3>{{ item.title }}</h3>
-            <p>{{ item.text }}</p>
+            {{ item.text | markdownify }}
           </div>
           {% endfor %}
         </div>
@@ -129,13 +129,13 @@
       <div class="wrap">
         <p class="section-label">{{ page.features.label }}</p>
         <h2>{{ page.features.title }}</h2>
-        <p>{{ page.about.intro }}</p>
+        {{ page.features.intro | markdownify }}
         <div class="features-grid">
           {% for item in page.features.items %}
           <div class="feature-card">
             {% if item.icon %}<span class="feature-icon">{{ item.icon }}</span>{% endif %}
             <h3>{{ item.title }}{% if item.badge %}<span class="feature-badge">({{ item.badge }})</span>{% endif %}</h3>
-            <p>{{ item.text }}</p>
+            {{ item.text | markdownify }}
           </div>
           {% endfor %}
         </div>
@@ -153,21 +153,21 @@
             <p class="section-label">{{ page.dialects.label }}</p>
             <h2>{{ page.dialects.title }}</h2>
             {% for item in page.dialects.items %}
-            <p>{{ item.text }}</p>
+            {{ item.text | markdownify }}
             {% endfor %}
           </div>
           <div class="dialect-tower">
             {% for block in page.dialects.blocks %}
-            <div class="dialect-row">
-              <div>
-                <div class="dialect-name">
-                  {% include links.html item=block %}
-                  <a href="{{ linkhref }}">{{ block.name }}</a>
+            {% include links.html item=block %}
+            <a href="{{ linkhref }}">
+              <div class="dialect-row">
+                <div>
+                  <div class="dialect-name">{{ block.name }}</div>
+                  <div class="dialect-tag {{ block.class }}">{{ block.tag }}</div>
                 </div>
-                <div class="dialect-tag {{ block.class }}">{{ block.tag }}</div>
+                <div class="dialect-desc">{{ block.text }}</div>
               </div>
-              <div class="dialect-desc">{{ block.text }}</div>
-            </div>
+            </a>
             {% endfor %}
           </div>
         </div>
@@ -182,7 +182,7 @@
       <div class="wrap">
         <p class="section-label">{{ page.install.label }}</p>
         <h2>{{ page.install.title }}</h2>
-        <p>{{ page.install.intro }}</p>
+        {{ page.install.intro | markdownify }}
         <div class="install-cols">
           {% for block in page.install.blocks %}
           <div class="install-block">
@@ -213,7 +213,7 @@
           <div>
             <p class="section-label">{{ page.editor.label }}</p>
             <h2>{{ page.editor.title }}</h2>
-            <p>{{ page.editor.text }}</p>
+            {{ page.editor.text | markdownify }}
             <ul class="editor-features">
               {% for feature in page.editor.features %}
               <li>{{ feature }}</li>
@@ -222,8 +222,9 @@
           </div>
           <div class="editor-install">
             <p class="editor-install-label">{{ page.editor.block.title }}</p>
-            <p class="editor-install-text">{{ page.editor.block.text }}</p>
-            <p class="editor-install-code">{{ page.editor.block.code }}</p>
+            <div class="editor-install-text">
+              {{ page.editor.block.text | markdownify }}
+            </div>
           </div>
         </div>
     </section>
@@ -236,7 +237,7 @@
       <div class="wrap">
         <p class="section-label">{{ page.resources.label }}</p>
         <h2>{{ page.resources.title }}</h2>
-        <p>{{ page.resources.intro }}</p>
+        {{ page.resources.intro | markdownify }}
         <div class="links-grid">
           {% for rsc in page.resources.items %}
           {% include links.html item=rsc %}

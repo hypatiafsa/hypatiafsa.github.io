@@ -54,14 +54,20 @@ about:
         syntax designed to be readable by humans and tools.
     - title: Named after
       text: >-
-        Hypatia of Alexandria (c.350/370–415 AD), mathematician, astronomer, and
-        head of the Neoplatonic school. The internal toolkits bear equally
-        classical names: the validator Aristarchus, after Aristarchus of
-        Samothrace (c. 220–143 BC), grammarian and head librarian of the Library
-        of Alexandria; the analyser Anaxagoras, after Anaxagoras of Clazomenae
-        (c. 500–428 BC), philosopher of mind and matter; the processor Metis,
-        after the Titaness of wisdom in Greek mythology; and the language server
-        Pythia, after the high priestess of the temple of Apollo at Delphi.
+        [Hypatia of Alexandria](https://en.wikipedia.org/wiki/Hypatia)
+        (c.350/370–415 AD), mathematician, astronomer, and head of the
+        Neoplatonic school. The internal toolkits bear equally classical names:
+        the validator Aristarchus, after
+        [Aristarchus of
+        Samothrace](https://en.wikipedia.org/wiki/Aristarchus_of_Samothrace)
+        (c. 220–143 BC), grammarian and head librarian of the Library of
+        Alexandria; the analyser Anaxagoras, after
+        [Anaxagoras of Clazomenae](https://en.wikipedia.org/wiki/Anaxagoras) (c.
+        500–428 BC), philosopher of mind and matter; the processor Metis, after
+        the [Titaness of wisdom in Greek
+        mythology](https://en.wikipedia.org/wiki/Metis_(mythology)); and the
+        language server Pythia, after the [high priestess of the temple of
+        Apollo at Delphi](https://en.wikipedia.org/wiki/Pythia).
     - title: The toolkit
       text: >-
         The Hypatia program is a standalone command-line suite built around a
@@ -160,10 +166,10 @@ install:
   label: Getting started
   title: Install & run Hypatia
   intro: >-
-    Hypatia requires a working <a href="https://www.haskell.org/">Haskell</a>
-    environment (<a href="https://www.haskell.org/ghc/">GHC</a> >= 9.6.3).
-    We highly recommend <a href="https://www.haskell.org/ghcup/">GHCup</a> to
-    manage your Haskell installation.
+    Hypatia requires a working [Haskell](https://www.haskell.org/) environment
+    ([GHC](https://www.haskell.org/ghc/) >= 9.6.3).
+    We highly recommend [GHCup](https://www.haskell.org/ghcup/) to manage your
+    Haskell installation.
   blocks:
     - title: Via Cabal
       commands:
@@ -195,8 +201,10 @@ editor:
     - Automatic token-colour overlay while a Hypatia file is active
   block:
     title: Quick Install
-    text: Launch VS Code, press <box>Ctrl+P</box>, paste the following command,
-      and press enter.</br> <box>ext install hypatiafsa.hypatia</box>
+    text: >-
+      Launch **VS Code**, bring up the **Command Bar** via <box>Ctrl+P</box>,
+      paste the following command, and press <box>Enter</box>.<br/><br/>
+      <box>ext install hypatiafsa.hypatia</box>
 
 resources:
   label: Resources

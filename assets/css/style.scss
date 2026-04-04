@@ -23,7 +23,7 @@
   --bg-card: #EEEEEE;
   --bg-base: #F9F7F5;
   --bg-gradient: #F9F7F5 0%, #EDE9E5;
-  --bg-blue:  #D5E5F0;
+  --bg-blue: #D5E5F0;
   --bg-green: #D5F0E5;
   --bg-orange: #F0D5A5;
   --ink: #1F2A35;
@@ -255,12 +255,13 @@ nav a:hover {
 
 .button-primary:hover {
   text-decoration: none;
+  color: var(--ink);
   transform: translateY(-1px);
 }
 
 .button-ghost {
   border: 2px solid var(--rule);
-  color: var(--ink-soft);
+  color: var(--ink-muted);
   background: transparent;
 }
 
@@ -431,31 +432,41 @@ p {
 }
 
 .dialect-tower {
+  display: flex;
+  flex-direction: column;
   max-width: 480px;
   margin-top: 2rem;
 }
 
-.dialect-row {
+.dialect-tower a {
   position: relative;
+  display: block;
+  margin-top: -2px;
+  border: 2px solid var(--rule);
+  text-decoration: none;
+  background: var(--bg-card);
+}
+
+.dialect-tower a:first-child {
+  margin-top: 0;
+  border-radius: 6px 6px 0 0;
+}
+
+.dialect-tower a:last-child {
+  border-radius: 0 0 6px 6px;
+}
+
+.dialect-tower a:hover {
+  z-index: 1;
+  border-color: var(--accent);
+}
+
+.dialect-row {
   display: grid;
   grid-template-columns: 85px 1fr;
   align-items: start;
   gap: 1.25rem;
   padding: 1rem 1.2rem;
-  border: 2px solid var(--rule);
-  background: var(--bg-card);
-}
-
-.dialect-row:first-child {
-  border-radius: 6px 6px 0 0;
-}
-
-.dialect-row:not(:first-child) {
-  border-top: none;
-}
-
-.dialect-row:last-child {
-  border-radius: 0 0 6px 6px;
 }
 
 .dialect-name {
@@ -604,7 +615,7 @@ p {
   color: var(--ink-muted);
 }
 
-.editor-install-text {
+.editor-install-text p {
   max-width: unset;
   margin-top: 1rem;
   font-size: 0.82rem;
