@@ -13,6 +13,9 @@
 
 ## Begin of file test.sh ##
 
+set -eu
+cd "$(dirname "$0")"
+
 bundle exec jekyll serve
 rm -rf _site Gemfile.lock
 
