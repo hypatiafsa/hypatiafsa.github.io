@@ -73,8 +73,8 @@ about:
         The Hypatia program is a standalone command-line suite built around a
         minimal verifier kernel, which checks the correctness of derivations
         against the user-supplied inference rules. This kernel is intentionally
-        kept small and auditable, and does not include tactics or automated
-        strategies: it is a verifier, not a full proof assistant.
+        kept small, auditable, and does not include tactics or automated
+        strategies, i.e., it is a verifier, not a full proof assistant.
     - title: The library
       text: >-
         Hypatia is also intended to serve, in a future release, as a Haskell

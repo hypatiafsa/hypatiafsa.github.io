@@ -16,6 +16,7 @@
 /* -- Base ------------------------------------------------------------------ */
 
 :root {
+  color-scheme: light;
   --max: 1060px;
   --gap: clamp(1.25rem, 5vw, 2.5rem);
   --bg: #F0F5F0;
@@ -60,6 +61,49 @@
   --sans: 'Outfit', Sans-Serif;
   --serif: 'Spectral', Georgia, Serif;
   --mono: 'Fira Code', 'JetBrains Mono', Monospace;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #101923;
+  --bg-soft: #182431;
+  --bg-card: #202e3d;
+  --bg-base: #131e2a;
+  --bg-gradient: #131e2a 0%, #1a2634;
+  --bg-blue: #1c354b;
+  --bg-green: #193b32;
+  --bg-orange: #49331d;
+  --ink: #eff5fa;
+  --ink-soft: #c2d0db;
+  --ink-muted: #95a9b8;
+  --ink-blue: #9dcbf2;
+  --ink-green: #8ed7ad;
+  --ink-orange: #ffc783;
+  --ink-purple: #ff8ec4;
+  --shadow: rgba(0, 0, 0, 0.48);
+  --rule: #3b4d5d;
+  --accent: #82c1f2;
+  --code-bg: #0d1520;
+  --code-fg: #d2e2f3;
+  --code-tb: #172333;
+  --code-bt: #3b5064;
+  --code-fn: #a6bacb;
+  --code-dlc: #f18ad3;
+  --code-lng: #6ed9dd;
+  --code-alp: #eff5fa;
+  --code-int: #d8e0e8;
+  --code-inc: #c0ccd8;
+  --code-lxc: #70cf9b;
+  --code-mtb: #e2dc7b;
+  --code-sen: #6ed9dd;
+  --code-rat: #6ed9dd;
+  --code-phr: #70cf9b;
+  --code-fun: #a9d1ff;
+  --code-kwd: #82c1f2;
+  --code-str: #e3e8ed;
+  --code-cmt: #83c58e;
+  --code-blb: #c1cad4;
+  --code-err: #ff7777;
 }
 
 /* #0555A5 #05A555 #A55505 #A50555 #55A505 #5505A5 */
@@ -158,6 +202,55 @@ nav a:hover {
   text-decoration: none;
 }
 
+html[data-theme='dark'] .logo-topbar,
+html[data-theme='dark'] .hero-logo {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.theme-toggle-icon {
+  line-height: 1;
+}
+
+.theme-toggle-icon-dark {
+  display: none;
+}
+
+html[data-theme='dark'] .theme-toggle-icon-light {
+  display: none;
+}
+
+html[data-theme='dark'] .theme-toggle-icon-dark {
+  display: inline;
+}
+
 /* -------------------------------------------------------------------------- */
 
 /* -- Hero ------------------------------------------------------------------ */
@@ -178,8 +271,7 @@ nav a:hover {
   padding: 0 var(--gap);
 }
 
-.hero-text {
-}
+.hero-text {}
 
 .hero-logo {
   display: block;
