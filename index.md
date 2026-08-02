@@ -26,7 +26,7 @@ badges:
   - alt: Release
     path: /releases
     kind: root
-    img: https://img.shields.io/github/v/release/hypatiafsa/hypatia?label=Release
+    img: https://img.shields.io/github/v/release/hypatiafsa/hypatia-hs?label=Release
   - alt: Hackage
     key: hackage
     img: https://img.shields.io/hackage/v/hypatia.svg?label=Hackage
@@ -181,8 +181,8 @@ install:
         - "$ hypatia --version"
     - title: From source
       commands:
-        - "$ git clone git@github.com:hypatiafsa/hypatia.git"
-        - "$ cd hypatia && ./install.sh && hypatia --version"
+        - "$ git clone git@github.com:hypatiafsa/hypatia-hs.git"
+        - "$ cd hypatia-hs && ./install.sh && hypatia --version"
     - title: Validate a document
       commands:
         - "$ hypatia validator -dSifr --certify doc.hypatia"

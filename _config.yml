@@ -16,7 +16,7 @@ sass:
   style: compressed
 
 branch: dev
-repo: https://github.com/hypatiafsa/hypatia
+repo: https://github.com/hypatiafsa/hypatia-hs
 hackage: https://hackage.haskell.org/package/hypatia
 stackage: https://www.stackage.org/package/hypatia
 
