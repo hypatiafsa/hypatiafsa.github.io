@@ -46,7 +46,7 @@
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Fira+Mono:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
 
   <link rel="canonical" href="{{ page.url | absolute_url }}">
-  <link rel="manifest" href="/assets/includes/website.manifest" />
+  <link rel="manifest" href="/assets/includes/site.webmanifest" />
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="shortcut icon" href="/assets/images/favicon.ico" />
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
@@ -189,6 +189,7 @@
             <div class="dialect-tower">
               {% for block in page.dialects.blocks %}
               {% include links.html item=block %}
+              {% if linkhref != '' %}
               <a href="{{ linkhref }}">
                 <div class="dialect-row">
                   <div>
@@ -198,6 +199,7 @@
                   <div class="dialect-desc">{{ block.text }}</div>
                 </div>
               </a>
+              {% endif %}
               {% endfor %}
             </div>
           </div>
@@ -209,8 +211,7 @@
       <!-- Implementations ---------------------------------------------------->
       {% include components.html id="implementations"
       section=page.implementations
-      components=site.ecosystem.implementations
-      alt=true %}
+      components=site.ecosystem.implementations %}
       <!----------------------------------------------------------------------->
 
       <!-- Libraries ---------------------------------------------------------->
@@ -222,8 +223,7 @@
       <!-- Companions --------------------------------------------------------->
       {% include components.html id="companions"
       section=page.companions
-      components=site.ecosystem.companions
-      alt=true %}
+      components=site.ecosystem.companions %}
       <!----------------------------------------------------------------------->
 
       <!-- Resources ---------------------------------------------------------->
@@ -281,7 +281,10 @@
   <!--------------------------------------------------------------------------->
 
   <script defer src="{{ '/assets/includes/theme.js' | relative_url }}"></script>
+
+  {% if page.hero %}
   <script defer src="{{ '/assets/includes/carousel.js' | relative_url }}"></script>
+  {% endif %}
 
 </body>
 

@@ -1,4 +1,6 @@
---- ---
+---
+---
+
 /* -- Reset ----------------------------------------------------------------- */
 
 *,
@@ -370,7 +372,6 @@ html[data-theme='dark'] .theme-toggle-icon-dark {
   .hero-inner {
     grid-template-columns: 1fr;
   }
-
   .hero-code {
     display: none;
   }
@@ -409,11 +410,11 @@ section {
   padding: clamp(1.5rem, 5vw, 2.5rem) 0;
 }
 
-section+section {
+section + section {
   border-top: 1px solid var(--rule);
 }
 
-.section-stack>section:nth-child(even) {
+.section-stack > section:nth-child(even) {
   background: var(--bg-soft);
 }
 
@@ -982,7 +983,6 @@ footer {
     opacity: 0;
     transform: translateY(15px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -993,7 +993,6 @@ footer {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -1003,7 +1002,6 @@ footer {
   html {
     scroll-behavior: auto;
   }
-
   .hero-logo,
   .hero-eyebrow,
   .hero-title,
@@ -1013,7 +1011,6 @@ footer {
     opacity: 1;
     animation: none;
   }
-
   nav a,
   .theme-toggle,
   .button,

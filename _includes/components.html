@@ -29,8 +29,10 @@
 
         <h3>
           {{ item.label }}
-          {% if item.implementation %}
-          <span class="feature-badge">({{ item.implementation }})</span>
+          {% if component.implementation %}
+          <span class="feature-badge">
+            ({{ component.implementation | capitalize }})
+          </span>
           {% endif %}
         </h3>
 
