@@ -1,6 +1,4 @@
----
----
-
+--- ---
 /* -- Reset ----------------------------------------------------------------- */
 
 *,
@@ -23,7 +21,6 @@
   --bg-soft: #E0E5E0;
   --bg-card: #EEEEEE;
   --bg-base: #F9F7F5;
-  --bg-gradient: #F9F7F5 0%, #EDE9E5;
   --bg-blue: #D5E5F0;
   --bg-green: #D5F0E5;
   --bg-orange: #F0D5A5;
@@ -34,7 +31,9 @@
   --ink-green: #2D7A4A;
   --ink-orange: #7A2D0E;
   --ink-purple: #F55AA5;
+  --hero-gradient: #F9F7F5 0%, #EDE9E5;
   --shadow: #1F253A;
+  --shadow-soft: rgba(31, 37, 58, 0.12);
   --rule: #D0DAD0;
   --accent: #559AD5;
   --code-bg: #1F253A;
@@ -58,9 +57,9 @@
   --code-cmt: #55AA55;
   --code-blb: #AAAAAA;
   --code-err: #F00F0F;
-  --sans: 'Outfit', Sans-Serif;
-  --serif: 'Spectral', Georgia, Serif;
-  --mono: 'Fira Code', 'JetBrains Mono', Monospace;
+  --sans: 'Outfit', sans-serif;
+  --serif: 'Spectral', Georgia, serif;
+  --mono: 'Fira Mono', 'JetBrains Mono', monospace;
 }
 
 html[data-theme='dark'] {
@@ -69,7 +68,6 @@ html[data-theme='dark'] {
   --bg-soft: #182431;
   --bg-card: #202e3d;
   --bg-base: #131e2a;
-  --bg-gradient: #131e2a 0%, #1a2634;
   --bg-blue: #1c354b;
   --bg-green: #193b32;
   --bg-orange: #49331d;
@@ -80,7 +78,9 @@ html[data-theme='dark'] {
   --ink-green: #8ed7ad;
   --ink-orange: #ffc783;
   --ink-purple: #ff8ec4;
+  --hero-gradient: #131E2A 0%, #1A2634;
   --shadow: rgba(0, 0, 0, 0.48);
+  --shadow-soft: rgba(0, 0, 0, 0.28);
   --rule: #3b4d5d;
   --accent: #82c1f2;
   --code-bg: #0d1520;
@@ -105,9 +105,6 @@ html[data-theme='dark'] {
   --code-blb: #c1cad4;
   --code-err: #ff7777;
 }
-
-/* #0555A5 #05A555 #A55505 #A50555 #55A505 #5505A5 */
-/* #C05A0F #A05A05 #55ACD5 #0FF0A0 #1F253A #BFD5F5 */
 
 html {
   scroll-behavior: smooth;
@@ -258,7 +255,7 @@ html[data-theme='dark'] .theme-toggle-icon-dark {
 .hero {
   padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(2.5rem, 5vw, 4.5rem);
   border-bottom: 1px solid var(--rule);
-  background: linear-gradient(160deg, var(--bg-gradient));
+  background: linear-gradient(160deg, var(--hero-gradient));
 }
 
 .hero-inner {
@@ -373,6 +370,7 @@ html[data-theme='dark'] .theme-toggle-icon-dark {
   .hero-inner {
     grid-template-columns: 1fr;
   }
+
   .hero-code {
     display: none;
   }
@@ -411,11 +409,11 @@ section {
   padding: clamp(1.5rem, 5vw, 2.5rem) 0;
 }
 
-section + section {
+section+section {
   border-top: 1px solid var(--rule);
 }
 
-.section-stack > section:nth-child(even) {
+.section-stack>section:nth-child(even) {
   background: var(--bg-soft);
 }
 
@@ -490,7 +488,7 @@ p {
 
 .feature-card:hover {
   border-color: var(--ink-muted);
-  box-shadow: 0 4px 18px var(--bg-gradient);
+  box-shadow: 0 4px 18px var(--shadow-soft);
 }
 
 .feature-card p {
@@ -645,131 +643,6 @@ p {
 
 /* -------------------------------------------------------------------------- */
 
-/* -- Getting Started ------------------------------------------------------- */
-
-.install-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.install-block h3 {
-  margin-bottom: 0.7rem;
-  font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-
-.code-inline {
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-  overflow-x: auto;
-  font-family: var(--mono);
-  font-size: 0.82rem;
-  line-height: 1.8;
-  color: var(--code-fg);
-  background: var(--code-bg);
-}
-
-.prompt {
-  color: var(--ink-purple);
-  user-select: none;
-}
-
-.cmd {
-  color: var(--code-fun);
-}
-
-@media (max-width: 620px) {
-  .install-cols {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-
-/* -- Editor Support -------------------------------------------------------- */
-
-.editor-wrap {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  align-items: start;
-  gap: 2rem;
-}
-
-.editor-features {
-  margin-top: 0.5rem;
-  list-style: none;
-}
-
-.editor-features li {
-  position: relative;
-  max-width: unset;
-  padding: 0.35rem 0;
-  padding-left: 1.4rem;
-  border-bottom: 1px solid var(--rule);
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-}
-
-.editor-features li::before {
-  position: absolute;
-  left: 0;
-  content: '–';
-  font-family: var(--mono);
-  color: var(--accent);
-}
-
-.editor-features li:last-child {
-  border-bottom: none;
-}
-
-.editor-install {
-  margin-top: 2rem;
-  padding: 1.4rem 1.5rem;
-  border: 2px solid var(--rule);
-  border-radius: 6px;
-  background: var(--bg-card);
-}
-
-.editor-install-label {
-  max-width: unset;
-  margin-bottom: 0.7rem;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-
-.editor-install-text p {
-  max-width: unset;
-  margin-top: 1rem;
-  font-size: 0.82rem;
-  line-height: 1.6;
-  color: var(--ink-muted);
-}
-
-.editor-install-text box {
-  padding: 1px 5px;
-  border: 2px solid var(--rule);
-  border-radius: 3px;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  background: var(--bg-soft);
-}
-
-@media (max-width: 760px) {
-  .editor-wrap {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-
 /* -- Resources ------------------------------------------------------------- */
 
 .links-grid {
@@ -794,7 +667,7 @@ p {
 .link-card:hover {
   border-color: var(--accent);
   text-decoration: none;
-  box-shadow: 0 4px 14px var(--bg-gradient);
+  box-shadow: 0 4px 14px var(--shadow-soft);
 }
 
 .link-card-icon {
@@ -1109,6 +982,7 @@ footer {
     opacity: 0;
     transform: translateY(15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1119,8 +993,35 @@ footer {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-logo,
+  .hero-eyebrow,
+  .hero-title,
+  .hero-tagline,
+  .hero-actions,
+  .hero-code {
+    opacity: 1;
+    animation: none;
+  }
+
+  nav a,
+  .theme-toggle,
+  .button,
+  .feature-card,
+  .link-card,
+  .carousel-slide,
+  .carousel-dot {
+    transition: none;
   }
 }
 

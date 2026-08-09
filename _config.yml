@@ -32,24 +32,18 @@ ecosystem:
   implementations:
     - component: hypatia-hs
       label: Hypatia
-      implementation: Haskell
     - component: hypatia-rs
       label: Hypatia
-      implementation: Rust
     - component: hypatia-lean
       label: Hypatia
-      implementation: Lean
 
   libraries:
     - component: lib-apl-hs
       label: APL
-      implementation: Haskell
     - component: lib-apl-rs
       label: APL
-      implementation: Rust
     - component: lib-apl-lean
       label: APL
-      implementation: Lean
 
   companions:
     - component: companions-vscode
@@ -60,13 +54,19 @@ services:
     hackage:
       url: https://hackage.haskell.org/package/hypatia
       enabled: false
-    stackage:
-      url: https://www.stackage.org/package/hypatia
+    stackage-lts:
+      url: https://www.stackage.org/lts/package/hypatia
+      enabled: false
+    stackage-nightly:
+      url: https://www.stackage.org/nightly/package/hypatia
       enabled: false
 
   hypatia-rs:
     crates:
       url: https://crates.io/crates/hypatiafsa
+      enabled: false
+    docsrs:
+      url: https://docs.rs/hypatiafsa
       enabled: false
 
   hypatia-lean:
@@ -88,7 +88,7 @@ header:
       component: hypatia-language
       path: /doc/hypatia.md
       kind: blob
-    - label: Formalisation
+    - label: Formalisations
       component: hypatia-language
       path: /hyp
       kind: tree
@@ -97,7 +97,7 @@ header:
       path: /exm
       kind: tree
     - label: Implementations
-      url: "#implementations"
+      section: implementations
 
 footer:
   copyright: "Copyright © 2025-2026, the Hypatia Development Team."

@@ -8,18 +8,21 @@ hero:
     Hypatia is an open-source ecosystem for verifying, analysing, and processing
     user-defined formal systems crafted in the Hypatia language and its evolving
     dialects.
+
   buttons:
-buttons:
-  - label: Get Hypatia
-    url: "#implementations"
-    class: button-primary
-  - label: Explore Workspace
-    workspace: true
-    path: /
-    kind: tree
-    class: button-ghost
+
+    - label: Get Hypatia
+      section: implementations
+      class: button-primary
+
+    - label: Explore Workspace
+      workspace: true
+      path: /
+      kind: tree
+      class: button-ghost
 
 badges:
+
   - alt: Release
     workspace: true
     path: /releases
@@ -28,21 +31,53 @@ badges:
   - alt: Illinois Licence
     url: https://opensource.org/license/uoi-ncsa-php
     img: https://img.shields.io/badge/License-Illinois-blue.svg
+
   - alt: Hackage
     component: hypatia-hs
-    require_included: true
     service: hackage
     img: https://img.shields.io/hackage/v/hypatia.svg?label=Hackage
-  - alt: Stackage
+  - alt: Stackage LTS
     component: hypatia-hs
-    require_included: true
-    service: stackage
-    img: https://www.stackage.org/package/hypatia/badge/lts?label=Stackage
+    service: stackage-lts
+    img: https://www.stackage.org/package/hypatia/badge/lts?label=Stackage+LTS
+  - alt: Stackage Nightly
+    component: hypatia-hs
+    service: stackage-nightly
+    img: https://www.stackage.org/package/hypatia/badge/nightly?label=Stackage+Nightly
+
+  - alt: Crates.io
+    component: hypatia-rs
+    service: crates
+    img: https://img.shields.io/crates/v/hypatiafsa?label=Crates.io
+  - alt: Docs.rs
+    component: hypatia-rs
+    service: docsrs
+    img: https://img.shields.io/docsrs/hypatiafsa?label=docs.rs
+  - alt: MSRV
+    component: hypatia-rs
+    service: crates
+    img: https://img.shields.io/crates/msrv/hypatiafsa?label=MSRV
+
+  - alt: Reservoir
+    component: hypatia-lean
+    service: reservoir
+    img: https://img.shields.io/badge/Reservoir-Hypatia-blue
+
+  - alt: VS Marketplace
+    component: companions-vscode
+    service: marketplace
+    img: https://img.shields.io/badge/VS%20Marketplace-Hypatia-blue
+  - alt: Open VSX
+    component: companions-vscode
+    service: openvsx
+    img: https://img.shields.io/open-vsx/v/hypatiafsa/hypatia?label=Open+VSX
 
 about:
   label: About
   title: A language and toolkit for explicit formal reasoning
+
   items:
+
     - title: The Language
       text: >-
         The Hypatia language is a foundation-agnostic host language for defining
@@ -72,13 +107,14 @@ about:
         mythology](https://en.wikipedia.org/wiki/Metis_(mythology)); and the
         language server Pythia, after the [high priestess of the temple of
         Apollo at Delphi](https://en.wikipedia.org/wiki/Pythia).
-    - title: The toolkit
+
+    - title: The Toolkit
       text: >-
         All Hypatia implementations realise the same command-line suite for
         checking, analysing, transforming, and certifying formal artefacts.
-        The architecture is designed around a small verifier kernel and keeps
-        richer processing facilities outside the core verification boundary.
-    - title: The ecosystem
+        The architecture centres on a small verifier kernel and keeps richer
+        processing facilities outside the core verification boundary.
+    - title: The Ecosystem
       text: >-
         The Hypatia ecosystem separates the normative language from its
         implementations, documentation, libraries, and companion tools.
@@ -88,7 +124,9 @@ about:
 features:
   label: Features
   title: What Hypatia is designed to support
+
   items:
+
     - title: Mechanised Verification
       text: >-
         Check that every proof step follows from the inference rules declared by
@@ -96,13 +134,16 @@ features:
         dialect, keeping the acceptance path explicit.
     - title: Dialect Tower
       text: >-
-        Work at different levels of abstraction while keeping explicit
-        semantics-preserving translation paths from richer dialects towards the
-        minimal Sunya core.
+        Work at different levels of abstraction with explicit
+        semantics-preserving translations from richer dialects to the Sunya
+        core.
+        Each layer reduces to a simpler verification target.
     - title: Theory Neutrality
       text: >-
-        Encode formal systems without committing the host language to a built-in
-        logic, set theory, type theory, or collection of ambient axioms.
+        Encode formal systems without imposing a background logic, set theory,
+        type theory, or ambient axioms on the host language.
+        Foundational assumptions remain explicit in the encoded system.
+
     - title: Proof Certification
       badge: planned
       text: >-
@@ -112,20 +153,22 @@ features:
     - title: Transformations
       badge: planned
       text: >-
-        Normalise and translate documents from and to other frameworks including
-        Metamath, Mizar, Isabelle, and Lean, enabling interoperability across
-        formal ecosystems.
+        Normalise and translate documents to and from Metamath, Mizar, Isabelle,
+        Lean, and other frameworks, enabling interoperability across formal
+        ecosystems.
     - title: Language Server
       badge: planned
       text: >-
-        Provide IDE integration via the Language Server Protocol, bringing
-        real-time diagnostics, navigation, and tooling support to your editor of
-        choice.
+        Provide IDE integration through the Language Server Protocol, supporting
+        real-time diagnostics, navigation, and other language-aware editor
+        services.
 
 dialects:
   label: Dialects
   title: A tower of formal languages
+
   items:
+
     - text: >-
         The dialect tower is a stratified hierarchy in which each higher layer
         is required to admit a semantics-preserving translation towards the
@@ -138,7 +181,9 @@ dialects:
         language, take their names from historical words for 'zero' in Sanskrit,
         Arabic, and Latin, respectively, echoing the progression from the
         minimal core towards increasingly ergonomic notation.
+
   blocks:
+
     - name: Zero
       component: hypatia-language
       path: /doc/hypatia.md#zeros-constructs
@@ -173,12 +218,13 @@ implementations:
   label: Implementations
   title: Multiple implementations, one toolkit
   intro: >-
-    The Hypatia implementations are alternative realisations of the same
-    assistant toolkit. They share the same language-facing architecture and
-    intended suite of capabilities, while differing in implementation language,
-    internal design, and current maturity. The workspace records which
-    implementations belong to each curated snapshot.
+    The Hypatia Formal-System Assistant admits alternative realisations while
+    retaining the same language-facing architecture and intended command suite.
+    Implementations may differ in language, internal design, and maturity; the
+    workspace records which ones belong to each curated snapshot.
+
   items:
+
     hypatia-hs:
       text: >-
         The Haskell implementation provides the command-line application and
@@ -193,9 +239,13 @@ implementations:
         - label: Hackage
           component: hypatia-hs
           service: hackage
-        - label: Stackage
+        - label: Stackage LTS
           component: hypatia-hs
-          service: stackage
+          service: stackage-lts
+        - label: Stackage Nightly
+          component: hypatia-hs
+          service: stackage-nightly
+
     hypatia-rs:
       text: >-
         The Rust implementation provides an independent realisation of the same
@@ -206,6 +256,10 @@ implementations:
         - label: Crates.io
           component: hypatia-rs
           service: crates
+        - label: Docs.rs
+          component: hypatia-rs
+          service: docsrs
+
     hypatia-lean:
       text: >-
         The Lean implementation provides a proof-assistant-oriented realisation
@@ -222,21 +276,25 @@ libraries:
   title: Internal libraries supporting the implementations
   intro: >-
     The ecosystem also contains independently versioned libraries developed for
-    use by Hypatia implementations. Their availability is tracked by the same
-    workspace snapshot.
+    use by Hypatia implementations.
+    Their availability is tracked by the same workspace snapshot.
+
   items:
+
     lib-apl-hs:
       text: >-
         The Haskell implementation of APL, an Abstract Programming Library.
       links:
         - label: Repository
           component: lib-apl-hs
+
     lib-apl-rs:
       text: >-
         The Rust implementation of APL, an Abstract Programming Library.
       links:
         - label: Repository
           component: lib-apl-rs
+
     lib-apl-lean:
       text: >-
         The Lean implementation of APL, an Abstract Programming Library.
@@ -246,11 +304,13 @@ libraries:
 
 companions:
   label: Companions
-  title: Tools around the Hypatia ecosystem
+  title: Companion tools and integrations
   intro: >-
     Companion projects provide integrations and supporting tools without being
     part of the Hypatia program itself.
+
   items:
+
     companions-vscode:
       text: >-
         Hypatia-VSCode provides Visual Studio Code support for Hypatia files,
@@ -259,61 +319,19 @@ companions:
       links:
         - label: Repository
           component: companions-vscode
-        - label: Visual Studio Marketplace
+        - label: VS Marketplace
           component: companions-vscode
           service: marketplace
         - label: Open VSX
           component: companions-vscode
           service: openvsx
 
-install:
-  label: Getting started
-  title: Install & run Hypatia
-  intro: >-
-    Hypatia requires a working [Haskell](https://www.haskell.org/) environment
-    ([GHC](https://www.haskell.org/ghc/) >= 9.6.3).
-    We highly recommend [GHCup](https://www.haskell.org/ghcup/) to manage your
-    Haskell installation.
-  blocks:
-    - title: Via Cabal
-      commands:
-        - "$ cabal install hypatia"
-        - "$ hypatia --version"
-    - title: Via Stack
-      commands:
-        - "$ stack install hypatia"
-        - "$ hypatia --version"
-    - title: From source
-      commands:
-        - "$ git clone git@github.com:hypatiafsa/hypatia-hs.git"
-        - "$ cd hypatia-hs && ./install.sh && hypatia --version"
-    - title: Validate a document
-      commands:
-        - "$ hypatia validator -dSifr --certify doc.hypatia"
-
-editor:
-  label: Editor Support
-  title: Seamless integration for VS Code
-  text: >-
-    Hypatia-VSCode provides editor support for the Hypatia language in Visual
-    Studio Code, making Hypatia documents pleasant to read and write through
-    language-aware behaviour, syntax highlighting, and sensible defaults that
-    integrate cleanly with your setup.
-  features:
-    - Bundled light and dark colour themes
-    - Syntax highlighting for *.hyp and *.hypatia files
-    - Automatic token-colour overlay while a Hypatia file is active
-  block:
-    title: Quick Install
-    text: >-
-      Launch **VS Code**, bring up the **Command Bar** via <box>Ctrl+P</box>,
-      paste the following command, and press <box>Enter</box>.<br/><br/>
-      <box>ext install hypatiafsa.hypatia</box>
-
 resources:
   label: Resources
   title: Documentation and Community
+
   items:
+
     - title: Language Specification
       sub: Grammar and Constructs
       component: hypatia-language
@@ -335,16 +353,23 @@ resources:
       path: /versioning.md
       kind: blob
 
-
     - title: Hypatia Book
       sub: User-Level Documentation
       component: hypatia-book
+
     - title: Workspace
       sub: Curated Ecosystem Snapshot
       workspace: true
       path: /
       kind: tree
+    - title: Workspace Versioning
+      sub: Epoch-Based Versioning
+      workspace: true
+      path: /versioning.md
+      kind: blob
+
     - title: GitHub Organisation
       sub: Source, Issues, and Discussions
       url: https://github.com/hypatiafsa
+
 ---

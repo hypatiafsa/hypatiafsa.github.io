@@ -1,4 +1,5 @@
 (function () {
+
   var storageKey = 'hypatia-theme';
   var root = document.documentElement;
   var toggle = document.querySelector('[data-theme-toggle]');
@@ -17,8 +18,12 @@
   function updateToggle(theme) {
     var isDark = theme === 'dark';
     toggle.setAttribute('aria-pressed', String(isDark));
-    toggle.setAttribute('aria-label', 'Switch to ' + (isDark ? 'light' : 'dark') + ' theme');
-    toggle.querySelector('.theme-toggle-label').textContent = isDark ? 'Dark' : 'Light';
+    toggle.setAttribute('aria-label', 'Switch to ' +
+      (isDark ? 'light' : 'dark') + ' theme'
+    );
+    toggle.querySelector('.theme-toggle-label').textContent = isDark
+      ? 'Dark'
+      : 'Light';
   }
 
   function setTheme(theme, save) {
@@ -39,4 +44,5 @@
   mediaQuery.addEventListener('change', function (event) {
     if (!getSavedTheme()) setTheme(event.matches ? 'dark' : 'light', false);
   });
+
 }());

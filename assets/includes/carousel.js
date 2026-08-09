@@ -1,4 +1,5 @@
 (function () {
+
   var timer;
   var current = 0;
   var dots = document.querySelectorAll('.carousel-dot');
@@ -31,4 +32,5 @@
   });
 
   startTimer();
+
 }());

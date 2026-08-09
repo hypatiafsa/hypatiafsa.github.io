@@ -1,6 +1,25 @@
 {% assign linkhref = '' %}
 
-{% if include.item.url %}
+{% if include.item.section %}
+
+  {% assign section_id = include.item.section %}
+  {% assign section_components = site.ecosystem[section_id] %}
+  {% assign section_visible = false %}
+
+  {% if section_components %}
+    {% for item in section_components %}
+      {% assign component = site.data.snapshot.components[item.component] %}
+      {% if component and component.status == 'included' %}
+        {% assign section_visible = true %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {% if section_visible %}
+    {% assign linkhref = '#' | append: section_id %}
+  {% endif %}
+
+{% elsif include.item.url %}
 
   {% unless include.item.enabled == false %}
     {% assign linkhref = include.item.url %}
