@@ -10,47 +10,99 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - readme.md
-  - test.sh
+  - scripts
 
 sass:
   style: compressed
 
-branch: dev
-repo: https://github.com/hypatiafsa/hypatia-hs
-hackage: https://hackage.haskell.org/package/hypatia
-stackage: https://www.stackage.org/package/hypatia
+workspace:
+  repository: https://github.com/hypatiafsa/workspace
+  ref: dev
+  manifest: snapshot.yaml
 
-vscode_repo: https://github.com/hypatiafsa/vscode
-vscode_marketplace: https://marketplace.visualstudio.com/items?itemName=HypatiaFSA.hypatia
-vscode_openvsx: https://open-vsx.org/extension/HypatiaFSA/hypatia
+ecosystem:
+  language:
+    component: hypatia-language
+    label: Hypatia Language
+
+  book:
+    component: hypatia-book
+    label: Hypatia Book
+
+  implementations:
+    - component: hypatia-hs
+      label: Hypatia
+      implementation: Haskell
+    - component: hypatia-rs
+      label: Hypatia
+      implementation: Rust
+    - component: hypatia-lean
+      label: Hypatia
+      implementation: Lean
+
+  libraries:
+    - component: lib-apl-hs
+      label: APL
+      implementation: Haskell
+    - component: lib-apl-rs
+      label: APL
+      implementation: Rust
+    - component: lib-apl-lean
+      label: APL
+      implementation: Lean
+
+  companions:
+    - component: companions-vscode
+      label: Hypatia-VSCode
+
+services:
+  hypatia-hs:
+    hackage:
+      url: https://hackage.haskell.org/package/hypatia
+      enabled: false
+    stackage:
+      url: https://www.stackage.org/package/hypatia
+      enabled: false
+
+  hypatia-rs:
+    crates:
+      url: https://crates.io/crates/hypatiafsa
+      enabled: false
+
+  hypatia-lean:
+    reservoir:
+      url: https://reservoir.lean-lang.org/@hypatiafsa/hypatia
+      enabled: false
+
+  companions-vscode:
+    marketplace:
+      url: https://marketplace.visualstudio.com/items?itemName=HypatiaFSA.hypatia
+      enabled: true
+    openvsx:
+      url: https://open-vsx.org/extension/HypatiaFSA/hypatia
+      enabled: true
 
 header:
   links:
-    - label: Architecture
-      path: /doc/architecture.md
-      kind: blob
     - label: Language
+      component: hypatia-language
       path: /doc/hypatia.md
       kind: blob
     - label: Formalisation
+      component: hypatia-language
       path: /hyp
       kind: tree
     - label: Examples
+      component: hypatia-language
       path: /exm
       kind: tree
+    - label: Implementations
+      url: "#implementations"
 
 footer:
   copyright: "Copyright © 2025-2026, the Hypatia Development Team."
   links:
-    - label: Source
+    - label: Workspace
+      workspace: true
       path: /
       kind: tree
-    - label: Issues
-      path: /issues
-      kind: root
-    - label: Changelog
-      path: /changelog.md
-      kind: blob
-    - label: Contributors
-      path: /contributors.txt
-      kind: blob

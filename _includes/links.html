@@ -1,13 +1,95 @@
-{% if include.item.path %}
-{% if include.item.kind == 'blob' %}
-{% assign linkhref = blob | append: include.item.path %}
-{% elsif include.item.kind == 'tree' %}
-{% assign linkhref = tree | append: include.item.path %}
-{% else %}
-{% assign linkhref = repo | append: include.item.path %}
-{% endif %}
+{% assign linkhref = '' %}
+
+{% if include.item.url %}
+
+  {% unless include.item.enabled == false %}
+    {% assign linkhref = include.item.url %}
+  {% endunless %}
+
+{% elsif include.item.service and include.item.component %}
+
+  {% assign component_id = include.item.component %}
+  {% assign component = site.data.snapshot.components[component_id] %}
+
+  {% if component and component.status == 'included' %}
+
+    {% assign services = site.services[component_id] %}
+
+    {% if services %}
+      {% assign service = services[include.item.service] %}
+
+      {% if service and service.enabled and service.url %}
+        {% assign linkhref = service.url %}
+      {% endif %}
+    {% endif %}
+
+  {% endif %}
+
+{% elsif include.item.workspace %}
+
+  {% assign repo = site.workspace.repository %}
+  {% assign ref = site.workspace.ref %}
+  {% assign blob = repo | append: '/blob/' | append: ref %}
+  {% assign tree = repo | append: '/tree/' | append: ref %}
+
+  {% if include.item.path %}
+
+    {% if include.item.kind == 'blob' %}
+      {% assign linkhref = blob | append: include.item.path %}
+    {% elsif include.item.kind == 'tree' %}
+      {% assign linkhref = tree | append: include.item.path %}
+    {% else %}
+      {% assign linkhref = repo | append: include.item.path %}
+    {% endif %}
+
+  {% else %}
+    {% assign linkhref = repo %}
+  {% endif %}
+
+{% elsif include.item.component %}
+
+  {% assign component_id = include.item.component %}
+  {% assign component = site.data.snapshot.components[component_id] %}
+
+  {% if component and component.status == 'included' %}
+
+    {% assign repo = component.repository %}
+
+    {% unless repo contains '://' %}
+      {% assign repo = 'https://github.com/' | append: repo %}
+    {% endunless %}
+
+    {% if include.item.path %}
+
+      {% if include.item.kind == 'root' %}
+
+        {% assign linkhref = repo | append: include.item.path %}
+
+      {% elsif component.commit %}
+
+        {% assign blob = repo | append: '/blob/' %}
+        {% assign blob = blob | append: component.commit %}
+        {% assign tree = repo | append: '/tree/' %}
+        {% assign tree = tree | append: component.commit %}
+
+        {% if include.item.kind == 'blob' %}
+          {% assign linkhref = blob | append: include.item.path %}
+        {% elsif include.item.kind == 'tree' %}
+          {% assign linkhref = tree | append: include.item.path %}
+        {% else %}
+          {% assign linkhref = repo | append: include.item.path %}
+        {% endif %}
+
+      {% endif %}
+
+    {% else %}
+      {% assign linkhref = repo %}
+    {% endif %}
+
+  {% endif %}
+
 {% elsif include.item.key %}
-{% assign linkhref = site[include.item.key] %}
-{% elsif include.item.url %}
-{% assign linkhref = include.item.url %}
+
+  {% assign linkhref = site[include.item.key] %}
+
 {% endif %}

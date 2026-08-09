@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% assign repo = site.repo %}
-{% assign blob = repo | append: '/blob/' | append: site.branch %}
-{% assign tree = repo | append: '/tree/' | append: site.branch %}
-
 <head>
 
   <meta charset="UTF-8">
@@ -76,10 +72,12 @@
       <nav>
         {% for link in site.header.links %}
         {% include links.html item=link %}
+        {% if linkhref != '' %}
         <a href="{{ linkhref }}">{{ link.label }}</a>
+        {% endif %}
         {% endfor %}
         <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"
-          aria-label="Switch to dark theme">
+          aria-label="Switch between light and dark theme">
           <span class="theme-toggle-icon theme-toggle-icon-light" aria-hidden="true">☀</span>
           <span class="theme-toggle-icon theme-toggle-icon-dark" aria-hidden="true">☾</span>
           <span class="theme-toggle-label">Light</span>
@@ -121,162 +119,136 @@
       <div class="badges-inner">
         {% for badge in page.badges %}
         {% include links.html item=badge %}
+        {% if linkhref != '' %}
         <a href="{{ linkhref }}"><img src="{{ badge.img }}" alt="{{ badge.alt }}"></a>
+        {% endif %}
         {% endfor %}
       </div>
     </div>
     {% endif %}
     <!------------------------------------------------------------------------->
 
-    <!-- About ---------------------------------------------------------------->
-    {% if page.about %}
-    <section>
-      <div class="wrap">
-        <p class="section-label">{{ page.about.label }}</p>
-        <h2>{{ page.about.title }}</h2>
-        {{ page.about.intro | markdownify }}
-        <div class="about-grid">
-          {% for item in page.about.items %}
-          <div>
-            <h3>{{ item.title }}</h3>
-            {{ item.text | markdownify }}
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-    {% endif %}
-    <!------------------------------------------------------------------------->
+    <div class="section-stack">
 
-    <!-- Features ------------------------------------------------------------->
-    {% if page.features %}
-    <section class="alt">
-      <div class="wrap">
-        <p class="section-label">{{ page.features.label }}</p>
-        <h2>{{ page.features.title }}</h2>
-        {{ page.features.intro | markdownify }}
-        <div class="features-grid">
-          {% for item in page.features.items %}
-          <div class="feature-card">
-            {% if item.icon %}<span class="feature-icon">{{ item.icon }}</span>{% endif %}
-            <h3>{{ item.title }}{% if item.badge %}<span class="feature-badge">({{ item.badge }})</span>{% endif %}</h3>
-            {{ item.text | markdownify }}
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-    {% endif %}
-    <!------------------------------------------------------------------------->
-
-    <!-- Dialects ------------------------------------------------------------->
-    {% if page.dialects %}
-    <section>
-      <div class="wrap">
-        <div class="dialects-wrap">
-          <div>
-            <p class="section-label">{{ page.dialects.label }}</p>
-            <h2>{{ page.dialects.title }}</h2>
-            {% for item in page.dialects.items %}
-            {{ item.text | markdownify }}
+      <!-- About -------------------------------------------------------------->
+      {% if page.about %}
+      <section>
+        <div class="wrap">
+          <p class="section-label">{{ page.about.label }}</p>
+          <h2>{{ page.about.title }}</h2>
+          {{ page.about.intro | markdownify }}
+          <div class="about-grid">
+            {% for item in page.about.items %}
+            <div>
+              <h3>{{ item.title }}</h3>
+              {{ item.text | markdownify }}
+            </div>
             {% endfor %}
           </div>
-          <div class="dialect-tower">
-            {% for block in page.dialects.blocks %}
-            {% include links.html item=block %}
-            <a href="{{ linkhref }}">
-              <div class="dialect-row">
-                <div>
-                  <div class="dialect-name">{{ block.name }}</div>
-                  <div class="dialect-tag {{ block.class }}">{{ block.tag }}</div>
+        </div>
+      </section>
+      {% endif %}
+      <!----------------------------------------------------------------------->
+
+      <!-- Features ----------------------------------------------------------->
+      {% if page.features %}
+      <section>
+        <div class="wrap">
+          <p class="section-label">{{ page.features.label }}</p>
+          <h2>{{ page.features.title }}</h2>
+          {{ page.features.intro | markdownify }}
+          <div class="features-grid">
+            {% for item in page.features.items %}
+            <div class="feature-card">
+              {% if item.icon %}<span class="feature-icon">{{ item.icon }}</span>{% endif %}
+              <h3>{{ item.title }}{% if item.badge %}<span class="feature-badge">({{ item.badge }})</span>{% endif %}
+              </h3>
+              {{ item.text | markdownify }}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      {% endif %}
+      <!----------------------------------------------------------------------->
+
+      <!-- Dialects ----------------------------------------------------------->
+      {% if page.dialects %}
+      <section>
+        <div class="wrap">
+          <div class="dialects-wrap">
+            <div>
+              <p class="section-label">{{ page.dialects.label }}</p>
+              <h2>{{ page.dialects.title }}</h2>
+              {% for item in page.dialects.items %}
+              {{ item.text | markdownify }}
+              {% endfor %}
+            </div>
+            <div class="dialect-tower">
+              {% for block in page.dialects.blocks %}
+              {% include links.html item=block %}
+              <a href="{{ linkhref }}">
+                <div class="dialect-row">
+                  <div>
+                    <div class="dialect-name">{{ block.name }}</div>
+                    <div class="dialect-tag {{ block.class }}">{{ block.tag }}</div>
+                  </div>
+                  <div class="dialect-desc">{{ block.text }}</div>
                 </div>
-                <div class="dialect-desc">{{ block.text }}</div>
-              </div>
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endif %}
+      <!----------------------------------------------------------------------->
+
+      <!-- Implementations ---------------------------------------------------->
+      {% include components.html id="implementations"
+      section=page.implementations
+      components=site.ecosystem.implementations
+      alt=true %}
+      <!----------------------------------------------------------------------->
+
+      <!-- Libraries ---------------------------------------------------------->
+      {% include components.html id="libraries"
+      section=page.libraries
+      components=site.ecosystem.libraries %}
+      <!----------------------------------------------------------------------->
+
+      <!-- Companions --------------------------------------------------------->
+      {% include components.html id="companions"
+      section=page.companions
+      components=site.ecosystem.companions
+      alt=true %}
+      <!----------------------------------------------------------------------->
+
+      <!-- Resources ---------------------------------------------------------->
+      {% if page.resources %}
+      <section>
+        <div class="wrap">
+          <p class="section-label">{{ page.resources.label }}</p>
+          <h2>{{ page.resources.title }}</h2>
+          {{ page.resources.intro | markdownify }}
+          <div class="links-grid">
+            {% for rsc in page.resources.items %}
+            {% include links.html item=rsc %}
+            {% if linkhref != '' %}
+            <a class="link-card" href="{{ linkhref }}">
+              {% if rsc.icon %}<span class="link-card-icon">{{ rsc.icon }}</span>{% endif %}
+              <span class="link-card-title">{{ rsc.title }}</span>
+              <span class="link-card-sub">{{ rsc.sub }}</span>
             </a>
+            {% endif %}
             {% endfor %}
           </div>
         </div>
-      </div>
-    </section>
-    {% endif %}
-    <!------------------------------------------------------------------------->
+      </section>
+      {% endif %}
+      <!----------------------------------------------------------------------->
 
-    <!-- Getting Started ------------------------------------------------------>
-    {% if page.install %}
-    <section class="alt">
-      <div class="wrap">
-        <p class="section-label">{{ page.install.label }}</p>
-        <h2>{{ page.install.title }}</h2>
-        {{ page.install.intro | markdownify }}
-        <div class="install-cols">
-          {% for block in page.install.blocks %}
-          <div class="install-block">
-            <h3>{{ block.title }}</h3>
-            <div class="code-inline">
-              {% for line in block.commands %}
-              {% if line contains "$ " %}
-              <span class="prompt">$</span>&nbsp;<span class="cmd">{{ line | remove_first: "$ " }}</span>
-              {% else %}
-              <span class="cmd">{{ line }}</span>
-              {% endif %}
-              {% unless forloop.last %}<br>{% endunless %}
-              {% endfor %}
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-    {% endif %}
-    <!------------------------------------------------------------------------->
-
-    <!-- Editor Support ------------------------------------------------------->
-    {% if page.editor %}
-    <section>
-      <div class="wrap">
-        <div class="editor-wrap">
-          <div>
-            <p class="section-label">{{ page.editor.label }}</p>
-            <h2>{{ page.editor.title }}</h2>
-            {{ page.editor.text | markdownify }}
-            <ul class="editor-features">
-              {% for feature in page.editor.features %}
-              <li>{{ feature }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="editor-install">
-            <p class="editor-install-label">{{ page.editor.block.title }}</p>
-            <div class="editor-install-text">
-              {{ page.editor.block.text | markdownify }}
-            </div>
-          </div>
-        </div>
-    </section>
-    {% endif %}
-    <!------------------------------------------------------------------------->
-
-    <!-- Resources ------------------------------------------------------------>
-    {% if page.resources %}
-    <section class="alt">
-      <div class="wrap">
-        <p class="section-label">{{ page.resources.label }}</p>
-        <h2>{{ page.resources.title }}</h2>
-        {{ page.resources.intro | markdownify }}
-        <div class="links-grid">
-          {% for rsc in page.resources.items %}
-          {% include links.html item=rsc %}
-          <a class="link-card" href={{ linkhref }}>
-            {% if rsc.icon %}<span class="link-card-icon">{{ rsc.icon }}</span>{% endif %}
-            <span class="link-card-title">{{ rsc.title }}</span>
-            <span class="link-card-sub">{{ rsc.sub }}</span>
-          </a>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-    {% endif %}
-    <!------------------------------------------------------------------------->
+    </div>
 
     {% else %}
 
@@ -297,7 +269,9 @@
       <div class="footer-links">
         {% for link in site.footer.links %}
         {% include links.html item=link %}
-        <a href={{ linkhref }}>{{ link.label }}</a>
+        {% if linkhref != '' %}
+        <a href="{{ linkhref }}">{{ link.label }}</a>
+        {% endif %}
         {% endfor %}
       </div>
     </div>
