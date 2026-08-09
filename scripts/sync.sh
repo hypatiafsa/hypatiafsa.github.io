@@ -91,13 +91,31 @@ source_manifest="$workspace_directory/$manifest"
 
 ruby -ryaml -e '
   manifest = YAML.load_file(ARGV.fetch(0))
+  components = manifest["components"]
 
   unless manifest.is_a?(Hash) &&
+         manifest["schema-version"] == 1 &&
          manifest["snapshot"].is_a?(String) &&
          manifest["status"].is_a?(String) &&
-         manifest["components"].is_a?(Hash)
+         components.is_a?(Hash)
     warn "ERROR: invalid workspace manifest"
     exit 1
+  end
+
+  components.each do |name, component|
+    unless component.is_a?(Hash) &&
+           component["repository"].is_a?(String) &&
+           component["status"].is_a?(String)
+      warn "ERROR: invalid component: #{name}"
+      exit 1
+    end
+
+    if component["status"] == "included" &&
+       (!component["commit"].is_a?(String) ||
+        component["commit"].empty?)
+      warn "ERROR: included component without commit: #{name}"
+      exit 1
+    end
   end
 ' "$source_manifest"
 

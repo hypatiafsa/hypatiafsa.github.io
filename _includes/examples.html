@@ -1,4 +1,4 @@
-<div class="carousel-window" role="region" aria-label="Code Examples">
+<div class="carousel-window" role="region" aria-roledescription="carousel" aria-label="Code examples">
 
   <div class="carousel-titlebar">
     <span class="carousel-filename" id="carousel-filename">Hofstadter's MIU System</span>
@@ -12,8 +12,8 @@
   <div class="carousel-body">
 
     <!-- 1 · MIU -------------------------------------------------------------->
-    <div id="panel-miu" aria-labelledby="tab-miu" role="tabpanel" class="carousel-slide active"
-      data-filename="Hofstadter's MIU System">
+    <div id="panel-miu" class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 of 3"
+      aria-hidden="false" data-filename="Hofstadter's MIU System">
       <pre><span class="kwd">$Hypatia</span> <span class="dlc">Sifr</span> <span class="kwd">$:</span>
 <span class="kwd">$Lingua</span> <span class="lng">MIU</span> <span class="kwd">$:</span>
 
@@ -43,8 +43,8 @@
     <!------------------------------------------------------------------------->
 
     <!-- 2 · SKI -------------------------------------------------------------->
-    <div id="panel-ski" aria-labelledby="tab-ski" role="tabpanel" class="carousel-slide"
-      data-filename="Schönfinkel's SKI Combinator Calculus">
+    <div id="panel-ski" class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 3"
+      aria-hidden="true" data-filename="Schönfinkel's SKI Combinator Calculus">
       <pre><span class="kwd">$Hypatia</span> <span class="dlc">Sifr</span> <span class="kwd">$:</span>
 <span class="kwd">$Lingua</span> <span class="lng">SKI</span> <span class="kwd">$:</span>
 
@@ -65,7 +65,7 @@
       <span class="kwd">$Praemitto</span> <span class="lxc">S K</span> <span class="mtb">y z</span> <span class="kwd">$.</span>
       <span class="kwd">$Consequor</span> <span class="lxc">K</span> <span class="mtb">z y z</span> <span class="kwd">$ex $Regula</span> <span class="rat">S</span> <span class="kwd">$cum</span> <span class="mtb">x</span> <span class="kwd">$=</span> <span class="str">K</span> <span class="kwd">$.</span>
       <span class="kwd">$Consequor</span>   <span class="mtb">z</span>     <span class="kwd">$ex $Regula</span> <span class="rat">K</span> <span class="kwd">$cum</span> <span class="mtb">x</span> <span class="kwd">$=</span> <span class="str">z</span>
-                                       <span class="kwd">$,</span>   <span class="mtb">y</span> <span class="kwd">$=</span> <span class="str">y z</span> <span class="kwd">$.</span>
+                                        <span class="kwd">$,</span>   <span class="mtb">y</span> <span class="kwd">$=</span> <span class="str">y z</span> <span class="kwd">$.</span>
     <span class="kwd">$.</span>
   <span class="kwd">$.</span>
 
@@ -74,8 +74,8 @@
     <!------------------------------------------------------------------------->
 
     <!-- 3 · A::B ------------------------------------------------------------->
-    <div id="panel-ab" aria-labelledby="tab-ab" role="tabpanel" class="carousel-slide"
-      data-filename="Taelin's A::B System">
+    <div id="panel-ab" class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 3"
+      aria-hidden="true" data-filename="Taelin's A::B System">
       <pre><span class="kwd">$Hypatia</span> <span class="dlc">Sifr</span> <span class="kwd">$:</span>
 <span class="kwd">$Lingua</span> <span class="lng">A::B</span> <span class="kwd">$:</span>
 
@@ -110,13 +110,16 @@
 
   </div>
 
-  <div class="carousel-dots" role="tablist" aria-label="Examples">
-    <button id="tab-miu" aria-controls="panel-miu" class="carousel-dot active" data-index="0" aria-label="MIU"
-      role="tab" aria-selected="true"></button>
-    <button id="tab-ski" aria-controls="panel-ski" class="carousel-dot" data-index="1" aria-label="SKI" role="tab"
-      aria-selected="false"></button>
-    <button id="tab-ab" aria-controls="panel-ab" class="carousel-dot" data-index="2" aria-label="A::B" role="tab"
-      aria-selected="false"></button>
+  <div class="carousel-dots" role="group" aria-label="Example controls">
+    <button class="carousel-dot active" type="button" data-index="0" aria-label="Show MIU example" aria-pressed="true">
+    </button>
+    <button class="carousel-dot" type="button" data-index="1" aria-label="Show SKI example" aria-pressed="false">
+    </button>
+    <button class="carousel-dot" type="button" data-index="2" aria-label="Show A::B example" aria-pressed="false">
+    </button>
+    <button class="carousel-pause" type="button" aria-pressed="false" aria-label="Pause automatic rotation">
+      <span aria-hidden="true">||</span>
+    </button>
   </div>
 
 </div>

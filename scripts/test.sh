@@ -19,8 +19,8 @@ cd "$(dirname "$0")/.."
 cleanup() {
   rm -rf _site Gemfile.lock
 }
-trap cleanup EXIT
+trap cleanup EXIT HUP INT TERM
 
-bundle exec jekyll serve
+bundle exec jekyll serve --livereload
 
 ## End of file test.sh ##

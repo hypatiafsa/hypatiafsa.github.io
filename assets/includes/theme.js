@@ -21,9 +21,8 @@
     toggle.setAttribute('aria-label', 'Switch to ' +
       (isDark ? 'light' : 'dark') + ' theme'
     );
-    toggle.querySelector('.theme-toggle-label').textContent = isDark
-      ? 'Dark'
-      : 'Light';
+    var label = toggle.querySelector('.theme-toggle-label');
+    if (label) { label.textContent = isDark ? 'Dark' : 'Light'; }
   }
 
   function setTheme(theme, save) {
