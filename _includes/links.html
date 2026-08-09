@@ -16,7 +16,18 @@
   {% endif %}
 
   {% if section_visible %}
-    {% assign linkhref = '#' | append: section_id %}
+
+    {% if page.url == '/' %}
+
+      {% assign linkhref = '#' | append: section_id %}
+
+    {% else %}
+
+      {% assign root_url = '/' | relative_url %}
+      {% assign linkhref = root_url | append: '#' | append: section_id %}
+
+    {% endif %}
+
   {% endif %}
 
 {% elsif include.item.url %}

@@ -1,10 +1,11 @@
 {
-  "id": "hypatiafsa",
+  "id": "/",
   "lang": "en",
   "name": "HypatiaFSA",
   "short_name": "Hypatia",
   "description": "Formal-System Assistant Toolkit",
-  "start_url": "https://hypatiafsa.github.io/",
+  "start_url": "/",
+  "scope": "/",
   "theme_color": "#F9F7F5",
   "background_color": "#F0F5F0",
   "display": "standalone",
