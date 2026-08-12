@@ -23,14 +23,14 @@ hero:
 
 badges:
 
+  - alt: Illinois Licence
+    url: https://opensource.org/license/uoi-ncsa-php
+    img: https://img.shields.io/badge/License-Illinois-blue.svg
   - alt: Release
     workspace: true
     path: /releases
     kind: root
     img: https://img.shields.io/github/v/release/hypatiafsa/workspace?label=Release
-  - alt: Illinois Licence
-    url: https://opensource.org/license/uoi-ncsa-php
-    img: https://img.shields.io/badge/License-Illinois-blue.svg
 
   - alt: Hackage
     component: hypatia-hs

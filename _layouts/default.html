@@ -189,8 +189,7 @@
             <div class="dialect-tower">
               {% for block in page.dialects.blocks %}
               {% include links.html item=block %}
-              {% if linkhref != '' %}
-              <a href="{{ linkhref }}">
+              <a class="dialect-block" {% if linkhref !='' %} href="{{ linkhref }}" {% endif %}>
                 <div class="dialect-row">
                   <div>
                     <div class="dialect-name">{{ block.name }}</div>
@@ -199,7 +198,6 @@
                   <div class="dialect-desc">{{ block.text }}</div>
                 </div>
               </a>
-              {% endif %}
               {% endfor %}
             </div>
           </div>

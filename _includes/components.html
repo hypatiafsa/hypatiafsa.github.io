@@ -1,13 +1,15 @@
-{% assign visible_count = 0 %}
+{% if include.section and site.workspace.active == true %}
 
-{% for item in include.components %}
-{% assign component = site.data.snapshot.components[item.component] %}
-{% if component and component.status == 'included' %}
-{% assign visible_count = visible_count | plus: 1 %}
-{% endif %}
-{% endfor %}
+  {% assign visible_count = 0 %}
 
-{% if include.section and visible_count > 0 %}
+  {% for item in include.components %}
+    {% assign component = site.data.snapshot.components[item.component] %}
+    {% if component and component.status == 'included' %}
+      {% assign visible_count = visible_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+
+  {% if visible_count > 0 %}
 <section id="{{ include.id }}">
   <div class="wrap">
 
@@ -64,4 +66,6 @@
 
   </div>
 </section>
+  {% endif %}
+
 {% endif %}
