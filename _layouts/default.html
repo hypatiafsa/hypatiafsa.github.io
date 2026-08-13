@@ -206,6 +206,8 @@
       {% endif %}
       <!----------------------------------------------------------------------->
 
+      {% if site.workspace.active == true %}
+
       <!-- Implementations ---------------------------------------------------->
       {% include components.html id="implementations"
       section=page.implementations components=site.ecosystem.implementations %}
@@ -220,6 +222,22 @@
       {% include components.html id="companions" section=page.companions
       components=site.ecosystem.companions %}
       <!----------------------------------------------------------------------->
+
+      {% else %}
+
+      <!-- Coming soon -------------------------------------------------------->
+      {% if page.coming_soon %}
+      <section>
+        <div class="wrap coming-soon">
+          <p class="section-label">{{ page.coming_soon.label }}</p>
+          <h2>{{ page.coming_soon.title }}</h2>
+          {{ page.coming_soon.intro | markdownify }}
+        </div>
+      </section>
+      {% endif %}
+      <!----------------------------------------------------------------------->
+
+      {% endif %}
 
       <!-- Resources ---------------------------------------------------------->
       {% if page.resources %}

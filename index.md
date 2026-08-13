@@ -214,6 +214,20 @@ dialects:
         Explicit and verbose by design; easy to verify by both automated tools
         and direct human inspection.
 
+coming_soon:
+  label: Coming Soon
+  title: The Hypatia ecosystem is taking shape
+
+  intro: |
+    This site will soon feature:
+
+    - The language specification and documentation.
+    - Software tools for verifying, analysing, and processing Hypatia documents.
+    - Additional resources for developers, such as IDE plugins.
+    - Curated examples and resources for formal-system development.
+
+    Stay tuned as Hypatia continues to grow.
+
 implementations:
   label: Implementations
   title: Multiple implementations, one toolkit
