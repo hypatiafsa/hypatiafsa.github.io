@@ -1,3 +1,4 @@
+ruby ">= 3.3.4", "< 3.4"
 source "https://rubygems.org"
 gem "github-pages", group: :jekyll_plugins
 platforms :mingw, :x64_mingw, :mswin, :jruby do
