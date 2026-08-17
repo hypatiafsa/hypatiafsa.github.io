@@ -99,6 +99,8 @@ header:
       kind: tree
     - label: Implementations
       section: implementations
+    - label: GitHubOrg
+      url: https://github.com/hypatiafsa
 
 footer:
   copyright: "Copyright © 2025-2026, the Hypatia Development Team."
