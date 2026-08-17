@@ -12,13 +12,14 @@ components:
     role: specification
     path: hypatia/language
     repository: hypatiafsa/hypatia-language
-    status: pending
+    status: included
+    commit: 0dc9dbafc1659f07f259193d09605a36eadbf7bb
 
   hypatia-book:
     family: documentation
     role: book
     path: hypatia/book
-    repository: hypatiafsa/book
+    repository: hypatiafsa/hypatia-book
     status: pending
 
   hypatia-hs:
@@ -27,7 +28,8 @@ components:
     implementation: haskell
     path: hypatia/hs
     repository: hypatiafsa/hypatia-hs
-    status: pending
+    status: included
+    commit: 026010878033601aa76141ab5fba2c1229a61376
 
   hypatia-rs:
     family: hypatia
@@ -73,5 +75,6 @@ components:
     family: companions
     role: extension
     path: companions/vscode
-    repository: hypatiafsa/vscode
-    status: pending
+    repository: hypatiafsa/companions-vscode
+    status: included
+    commit: c9decf0de03421cf88a13aba45df46303e0b4949

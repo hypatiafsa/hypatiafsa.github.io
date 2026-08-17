@@ -16,9 +16,9 @@ sass:
   style: compressed
 
 workspace:
-  active: false
+  active: true
   repository: https://github.com/hypatiafsa/workspace
-  ref: master
+  ref: dev
   manifest: snapshot.yaml
 
 ecosystem:
