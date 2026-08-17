@@ -13,6 +13,14 @@
 
 ## Begin of file test.sh ##
 
-bundle exec jekyll serve
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+cleanup() {
+  rm -rf _site Gemfile.lock
+}
+trap cleanup EXIT HUP INT TERM
+
+bundle exec jekyll serve --livereload
 
 ## End of file test.sh ##

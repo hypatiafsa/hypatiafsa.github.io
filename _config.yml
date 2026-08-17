@@ -1,15 +1,111 @@
 title: Hypatia
-logo: assets/images/hypatia.png
-email: hypatia@fabiomogavero.com
-description: >-
-  Hypatia is a formal-system assistant toolkit designed to support the
-  verification, analysis, and processing of formal systems crafted in the
-  Hypatia language and its evolving dialects.
-baseurl: ""
-url: ""
-github_username: hypatiafsa
-theme: minima
-remote_theme: pages-themes/minimal@v0.2.0
-plugins:
-  - jekyll-feed
-  - jekyll-remote-theme
+description: Formal-System Assistant Toolkit
+url: "https://hypatiafsa.github.io"
+
+exclude:
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
+  - .markdownlint.json
+  - Gemfile
+  - Gemfile.lock
+  - readme.md
+  - scripts
+
+sass:
+  style: compressed
+
+workspace:
+  active: false
+  repository: https://github.com/hypatiafsa/workspace
+  ref: master
+  manifest: snapshot.yaml
+
+ecosystem:
+  language:
+    component: hypatia-language
+    label: Hypatia Language
+
+  book:
+    component: hypatia-book
+    label: Hypatia Book
+
+  implementations:
+    - component: hypatia-hs
+      label: Hypatia
+    - component: hypatia-rs
+      label: Hypatia
+    - component: hypatia-lean
+      label: Hypatia
+
+  libraries:
+    - component: lib-apl-hs
+      label: APL
+    - component: lib-apl-rs
+      label: APL
+    - component: lib-apl-lean
+      label: APL
+
+  companions:
+    - component: companions-vscode
+      label: Hypatia-VSCode
+
+services:
+  hypatia-hs:
+    hackage:
+      url: https://hackage.haskell.org/package/hypatia
+      enabled: false
+    stackage-lts:
+      url: https://www.stackage.org/lts/package/hypatia
+      enabled: false
+    stackage-nightly:
+      url: https://www.stackage.org/nightly/package/hypatia
+      enabled: false
+
+  hypatia-rs:
+    crates:
+      url: https://crates.io/crates/hypatiafsa
+      enabled: false
+    docsrs:
+      url: https://docs.rs/hypatiafsa
+      enabled: false
+
+  hypatia-lean:
+    reservoir:
+      url: https://reservoir.lean-lang.org/@hypatiafsa/hypatia
+      enabled: false
+
+  companions-vscode:
+    marketplace:
+      url: https://marketplace.visualstudio.com/items?itemName=HypatiaFSA.hypatia
+      enabled: true
+    openvsx:
+      url: https://open-vsx.org/extension/HypatiaFSA/hypatia
+      enabled: true
+
+header:
+  links:
+    - label: Language
+      component: hypatia-language
+      path: /doc/hypatia.md
+      kind: blob
+    - label: Formalisations
+      component: hypatia-language
+      path: /hyp
+      kind: tree
+    - label: Examples
+      component: hypatia-language
+      path: /exm
+      kind: tree
+    - label: Implementations
+      section: implementations
+    - label: GitHubOrg
+      url: https://github.com/hypatiafsa
+
+footer:
+  copyright: "Copyright © 2025-2026, the Hypatia Development Team."
+  links:
+    - label: Workspace
+      workspace: true
+      path: /
+      kind: tree

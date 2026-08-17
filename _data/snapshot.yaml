@@ -1,0 +1,77 @@
+schema-version: 1
+
+status: draft
+snapshot: 2027.01.1
+
+description: >-
+  Initial curated snapshot template for the Hypatia ecosystem.
+
+components:
+  hypatia-language:
+    family: hypatia
+    role: specification
+    path: hypatia/language
+    repository: hypatiafsa/hypatia-language
+    status: pending
+
+  hypatia-book:
+    family: documentation
+    role: book
+    path: hypatia/book
+    repository: hypatiafsa/book
+    status: pending
+
+  hypatia-hs:
+    family: hypatia
+    role: implementation
+    implementation: haskell
+    path: hypatia/hs
+    repository: hypatiafsa/hypatia-hs
+    status: pending
+
+  hypatia-rs:
+    family: hypatia
+    role: implementation
+    implementation: rust
+    path: hypatia/rs
+    repository: hypatiafsa/hypatia-rs
+    status: pending
+
+  hypatia-lean:
+    family: hypatia
+    role: implementation
+    implementation: lean
+    path: hypatia/lean
+    repository: hypatiafsa/hypatia-lean
+    status: pending
+
+  lib-apl-hs:
+    family: lib
+    role: library
+    implementation: haskell
+    path: lib/apl/hs
+    repository: hypatiafsa/apl-hs
+    status: pending
+
+  lib-apl-rs:
+    family: lib
+    role: library
+    implementation: rust
+    path: lib/apl/rs
+    repository: hypatiafsa/apl-rs
+    status: pending
+
+  lib-apl-lean:
+    family: lib
+    role: library
+    implementation: lean
+    path: lib/apl/lean
+    repository: hypatiafsa/apl-lean
+    status: pending
+
+  companions-vscode:
+    family: companions
+    role: extension
+    path: companions/vscode
+    repository: hypatiafsa/vscode
+    status: pending

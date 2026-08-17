@@ -1,0 +1,71 @@
+{% if include.section and site.workspace.active == true %}
+
+  {% assign visible_count = 0 %}
+
+  {% for item in include.components %}
+    {% assign component = site.data.snapshot.components[item.component] %}
+    {% if component and component.status == 'included' %}
+      {% assign visible_count = visible_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+
+  {% if visible_count > 0 %}
+<section id="{{ include.id }}">
+  <div class="wrap">
+
+    <p class="section-label">{{ include.section.label }}</p>
+    <h2>{{ include.section.title }}</h2>
+
+    {% if include.section.intro %}
+    {{ include.section.intro | markdownify }}
+    {% endif %}
+
+    <div class="components-grid">
+      {% for item in include.components %}
+
+      {% assign component = site.data.snapshot.components[item.component] %}
+      {% assign details = include.section.items[item.component] %}
+
+      {% if component and component.status == 'included' %}
+      <div class="feature-card component-card">
+
+        <h3>
+          {{ item.label }}
+          {% if component.implementation %}
+          <span class="feature-badge">
+            ({{ component.implementation | capitalize }})
+          </span>
+          {% endif %}
+        </h3>
+
+        {% if details and details.text %}
+        {{ details.text | markdownify }}
+        {% endif %}
+
+        {% if details and details.links %}
+        <p class="component-links">
+          {% assign first_link = true %}
+          {% for link in details.links %}
+          {% include links.html item=link %}
+          {% if linkhref != '' %}
+          {% unless first_link %}
+          <span aria-hidden="true">|</span>
+          {% endunless %}
+          <a href="{{ linkhref }}">{{ link.label }}</a>
+          {% assign first_link = false %}
+          {% endif %}
+          {% endfor %}
+        </p>
+        {% endif %}
+
+      </div>
+      {% endif %}
+
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+  {% endif %}
+
+{% endif %}
