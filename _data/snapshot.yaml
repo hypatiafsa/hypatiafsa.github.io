@@ -18,7 +18,7 @@ components:
     family: documentation
     role: book
     path: hypatia/book
-    repository: hypatiafsa/book
+    repository: hypatiafsa/hypatia-book
     status: pending
 
   hypatia-hs:
@@ -73,5 +73,5 @@ components:
     family: companions
     role: extension
     path: companions/vscode
-    repository: hypatiafsa/vscode
+    repository: hypatiafsa/companions-vscode
     status: pending
