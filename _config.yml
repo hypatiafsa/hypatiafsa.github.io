@@ -7,9 +7,10 @@ exclude:
   - .gitattributes
   - .gitignore
   - .markdownlint.json
+  - readme.md
   - Gemfile
   - Gemfile.lock
-  - readme.md
+  - Makefile
   - scripts
 
 sass:
